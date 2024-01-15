@@ -1,0 +1,39 @@
+
+.product {
+  width: 20rem;
+  height: 26rem;
+  margin: 2rem 1.2rem 2rem 1.2rem;
+  background-color: var(--clr-primary-2);
+  padding: 1rem;
+  border: 2px solid var(--clr-primary-1);
+  border-radius: 5px;
+  box-shadow: var(--dark-shadow);
+}
+
+.image {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 0.2rem;
+    box-shadow: var(--dark-shadow);
+    margin-bottom: 1rem;
+    }
+
+.name {
+    font-style: italic;
+    text-align: center;
+    color: var(--clr-grey);
+}
+
+.prices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.price p {
+    color: var(--clr-grey);
+    font-size: 0.8rem;
+}
