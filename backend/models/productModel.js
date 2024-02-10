@@ -19,16 +19,19 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    originalPrice: {
+    category: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: true,
+    },
+    price: {
       type: Number,
       required: true,
       default: 0,
-    },
-    printPrice: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
+    },   
   },
   {
     timestamps: true,

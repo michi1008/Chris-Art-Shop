@@ -1,0 +1,90 @@
+
+    .login {
+        width: 50%;
+        background-image: url('../assets/login.jpg');
+        border-radius: 3px;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-position: center; 
+        height: 60%; 
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 3rem;
+        opacity: 85%;
+    }
+    
+    input::placeholder {
+      color: var(--clr-red);
+    }
+    
+    input:focus {
+      outline: 2px solid var(--clr-red);
+    }
+      
+    .loginTitle {
+      font-size: 2rem;
+      color: var(--clr-white);
+      margin-left: 2rem;
+    }
+    
+    .loginForm {
+      margin: 1.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .loginForm > Label {
+      margin: 1rem 0; 
+      color: var(--clr-white);
+    }
+    
+    .loginInput {
+      padding: 0.8rem;
+      background-color: var(--clr-white);
+      border: none;
+      border-radius: 0.5rem;
+    }
+    
+    .btn-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    
+    @media screen and (min-width: 800px){
+      min-height:calc(100vh-5rem)
+      .login{
+        width:40%;
+      }
+    
+      .loginTitle {
+        font-size: 4rem;
+        margin-left: 2rem;
+        margin-top: 2rem;
+      }
+      
+      .loginForm {
+        margin-top: 1.2rem;
+      }
+      
+      .loginForm > Label{
+        margin: 1rem 0; 
+      }
+      
+      .loginInput {
+        padding: 0.8rem;
+        border-radius: 0.5rem;
+      }
+      
+      .loginBtn {
+        margin-top: 1.2rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+      }
+      
+      .loginSignupBtn {
+        border-radius: 0.5rem;
+        padding: 0.6rem;
+      } 
+    }
+    

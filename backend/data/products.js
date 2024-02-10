@@ -4,55 +4,54 @@ const products = [
     image: '/images/BubblingBrook.jpg',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    category: 'Summer',
-    originalPrice: 700.00,
-    printPrice: 100.00,
+    category: 'Landscape',
+    price: 300.00,
+    size: '12x16'
   },
   {
     name: 'GrosVentreRiverOverlook',
     image: '/images/GrosVentreRiverOverlook.jpg',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    category: 'Winter',
-    originalPrice: 700.00,
-    printPrice: 100.00,
+    category: 'Houses',
+    price: 400.00,
+    size: '12x16'
   },
   {
     name: 'JulyintheTetons',
     image: '/images/JulyintheTetons.jpg',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    category: 'Fall',
-    originalPrice: 700.00,
-    printPrice: 100.00,
+    category: 'Wildlife',
+    price: 400.00,
+    size: '12x16'
   },
   {
-    name: 'JulyintheTetons',
-    image: '/images/JulyintheTetons.jpg',
+    name: 'LighthoursePaloDuro',
+    image: '/images/LighthousePaloDuro.jpg',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    category: 'Summer',
-    originalPrice: 700.00,
-    printPrice: 100.00,
-    countInStock: 11,
+    category: 'Landscape',
+    price: 350.00,
+    size: '12x16'
   },
   {
     name: 'SunDanceatDusk',
     image: '/images/SunDanceatDusk.jpg',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    category: 'Spring',
-    originalPrice: 700.00,
-    printPrice: 100.00,
+    category: 'Wildlife',
+    price: 400.00,
+    size: '12x16'
   },
   {
     name: 'TetonHomestead',
     image: '/images/TetonHomestead.jpg',
     desc:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-    category: 'winter',
-    originalPrice: 700.00,
-    printPrice: 100.00,
+    category: 'Lnadscape',
+    price: 700.00,
+    size: '12x16'
   },
 ]
 

@@ -8,6 +8,10 @@
   border: 2px solid var(--clr-primary-1);
   border-radius: 5px;
   box-shadow: var(--dark-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .image {
@@ -25,15 +29,10 @@
     color: var(--clr-grey);
 }
 
-.prices {
+.product-info {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    gap: 3rem;
 }
 
 
-.price p {
-    color: var(--clr-grey);
-    font-size: 0.8rem;
-}

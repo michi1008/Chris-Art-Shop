@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductScreen.css';
-import { useParams } from 'react-router-dom';
-import Loading from '../components/Loading';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Loader from '../components/Loader';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
+import { addToCart } from '../slices/cartSlice';
 
 const ProductScreen = () => {
 
     const { id: productId} = useParams();
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
-    console.log(product)
+
+    const addToCartHandler = () => {
+      dispatch(addToCart({...product, qty:1}));
+      navigate('/cart');
+    }
+
   return (
     <section>
         <a href='/'><button className='go-back'>Go back</button></a>
-        { isLoading ? (<Loading />) : error ? (
+        { isLoading ? (<Loader />) : error ? (
         <div className="error">{error?.data?.message || error.error}</div>) : (
           <>
           <div className='product-details'>
@@ -21,13 +32,13 @@ const ProductScreen = () => {
             </div>
             <div className='details'>
                 <div className='name'><h2>{product.name}</h2></div>
-                <div className='desc'><h5>{product.desc}</h5></div>
-                <div className='prices'>
-                    <div className='price'><h5>Original Price</h5><p>${product.originalPrice}</p></div>
-                    <div className='price'><h5>Print Price</h5><p>${product.printPrice}</p></div>
-                </div> 
+                <div className='desc'><h4>{product.desc}</h4></div>
+                <div className='info'>
+                    <div className="value"><h4>Price: </h4><h4>${product.price}</h4></div>
+                    <div className="value"><h4>Size: </h4><h4>{product.size}</h4></div>
+                </div>        
                 <div className="add-to-cart">
-                    <button>Add to cart</button>
+                    <button type='button' onClick={addToCartHandler}>Add to cart</button>
                 </div>
             </div>                      
         </div>
@@ -38,4 +49,4 @@ const ProductScreen = () => {
   )
 }
 
-export default ProductScreen
+export default ProductScreen;

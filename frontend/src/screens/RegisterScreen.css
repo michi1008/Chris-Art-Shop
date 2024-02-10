@@ -1,0 +1,92 @@
+
+.register {
+    width: 50%;
+    background-image: url('../assets/register.jpg');
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    height: 60%; 
+    padding: 3rem;
+    opacity: 85%;
+}
+
+input::placeholder {
+  color: var(--clr-red);
+}
+
+input:focus {
+  outline: 2px solid var(--clr-red);
+}
+  
+.registerTitle {
+  font-size: 2rem;
+  color: var(--clr-white);
+  margin-left: 2rem;
+}
+
+.registerForm {
+  margin: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.registerForm > Label {
+  margin: 1rem 0; 
+  color: var(--clr-white);
+}
+
+.registerInput {
+  padding: 0.8rem;
+  background-color: var(--clr-white);
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.registerBtn {
+    color: var(--clr-white);
+}
+
+@media screen and (min-width: 800px){
+  min-height:calc(100vh-5rem)
+  .register{
+    width:40%;
+  }
+
+  .registerTitle {
+    font-size: 4rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .loginForm {
+    margin-top: 1.2rem;
+  }
+  
+  .registerForm > Label{
+    margin: 1rem 0; 
+  }
+  
+  .registerInput {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+  }
+  
+  .registerBtn {
+    margin-top: 1.2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .registerLoginBtn {
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    background-color: var(--clr-grey);
+  } 
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomeScreen.css';
 import Product from '../components/Product';
-import Loading from '../components/Loading';
+import Loader from '../components/Loader';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 
 const HomeScreen = () => {
@@ -10,7 +10,7 @@ const HomeScreen = () => {
   return (
     <>
      { isLoading ? (
-      <Loading />
+      <Loader />
      ) : error ? (
       <div className="error">
         {error?.data?.message || error.error}

@@ -1,20 +1,22 @@
-import React from 'react'
-import './Product.css'
+import React from 'react';
+import './Product.css';
 
 const Product = ({ product} )=> {
-  console.log(product)
+  
   return (
     <>
         <div className='product'>
+            <div>
             <a href={`/product/${product._id}`}><img className='image' src={product.image} /></a>
             <div className='name'><h5>{product.name}</h5></div>
-            <div className='prices'>
-                <div className='price'><h5>Original Price</h5><p>${product.originalPrice}</p></div>
-                <div className='price'><h5>Print Price</h5><p>${product.printPrice}</p></div>
+            </div>           
+            <div>
+                <div className='product-info'><h5 className='product-title'>Price: </h5><h5 className='product-value'>${product.price}</h5></div>
+                <div className='product-info'><h5 className='product-title'>Size: </h5><h5 className='product-value'>${product.size}</h5></div>
             </div>           
         </div>
     </>
   )
 }
 
-export default Product
+export default Product;

@@ -1,3 +1,7 @@
+.nav-name {
+    color: var(--clr-white);
+}
+
 .active{
     background-color: var(--clr-primary-5);
 }
@@ -10,6 +14,9 @@ nav {
     color: white;
     position: sticky;
     top: 0;
+    height: 6rem;
+    padding: 2rem;
+    z-index: 200;
 }
 
 nav .title {
@@ -61,8 +68,46 @@ nav .menu span {
     border-radius: 0.2rem;
 }
 
+.navlink-cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
 
-@media (max-width: 480px) {
+.logout {
+    cursor: pointer;
+    align-self: center;
+}
+
+.logout a {
+    background-color: transparent; /* Override the background color */
+}
+
+.logout:hover {
+    background-color: var(--clr-primary-5);
+}
+
+.cart-qty {
+    position: absolute;
+    right: 0.2rem;
+    top: 1rem;
+    background: #fff;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    color: var(--clr-red);
+    padding: 12px;
+    
+}
+
+
+
+@media (max-width: 560px) {
     nav .menu {
         display: flex;
     }

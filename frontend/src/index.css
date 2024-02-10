@@ -1,15 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 
 /*  Variables */
 
 :root {
   --clr-primary-1: #e2dbbe;
   --clr-primary-2: #d5d6aa;
-  --clr-primary-3: #9dbbae;
+  --clr-primary-3: #287e59;
   --clr-primary-4: #769fb6;
   --clr-primary-5: #188fa7;
   --clr-grey: #7c7575;
+  --clr-blue: rgb(62, 62, 156);
   --clr-red: #ea6868;
+  --clr-green: rgb(38, 156, 38);
+  --clr-brown: #461d1d;
+  --clr-white: #FFF;
   --spacing: 0.1rem;
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
@@ -17,6 +23,7 @@
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
+  --form-control-color: rebeccapurple;
 }
 
 /*  Gloval Styles */
@@ -33,20 +40,20 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Libre Baskerville', serif;
+body, html {
+  font-family: 'Lato', sans-serif;
   background: var(--clr-primary-1);
   color: var(--clr-primary-5);
   line-height: 1.5;
   font-size: 0.875rem;
-  height: min-content;
 }
 
 ul {
   list-style-type: none;
 }
-a {
+a, a:hover, a:focus, a:active {
   text-decoration: none;
+  color: inherit;
 }
 hr {
   border: none;
@@ -115,6 +122,11 @@ section {
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 992px) {
@@ -124,13 +136,16 @@ section {
   }
 }
 
-.text-center {
-  text-align: center;
-}
 @keyframes spinner {
   to {
     transform: rotate(360deg);
   }
+}
+
+input:focus,
+select:focus,
+testare:focus {
+  outline: none;
 }
 
 .loading {
@@ -146,14 +161,14 @@ section {
 
 button {
   text-transform: uppercase;
-  background: var(--clr-primary-4);
+  background: var(--clr-primary-5);
   color: #fff;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1rem;
   letter-spacing: var(--spacing);
   display: inline-block;
-  font-weight: 400;
+  font-weight: 700;
   transition: var(--transition);
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
@@ -161,6 +176,6 @@ button {
 }
 
 button:hover {
-  color: var(--clr-primary-5);
+  color: var(--clr-grey);
   background: #fff;
 }

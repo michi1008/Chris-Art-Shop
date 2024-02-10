@@ -5,12 +5,11 @@
     align-items: center;
     justify-content: space-between;
     bottom: 0px;
-    height: 15rem;
-    position: fix;
+    height: 12rem;
     width: 100%;
     padding: 2rem;
     background-color: var(--clr-primary-4);
-    clip-path: polygon(1% 24%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 24%, 100% 0, 100% 100%, 0% 100%);
 }
 
 .footer-social h4{

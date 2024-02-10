@@ -51,7 +51,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
       shippingPrice,
       totalPrice,
     });
-
     const createdOrder = await order.save();
 
     res.status(201).json(createdOrder);
@@ -89,8 +88,8 @@ const getOrderById = asyncHandler(async (req, res) => {
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   // NOTE: here we need to verify the payment was made to PayPal before marking
   // the order as paid
-  console.log(req.body)
   const { verified, value } = await verifyPayPalPayment(req.body.id);
+  
   if (!verified) throw new Error('Payment not verified');
 
   // check if this transaction has been used before
@@ -98,12 +97,13 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   if (!isNewTransaction) throw new Error('Transaction has been used before');
 
   const order = await Order.findById(req.params.id);
-console.log(order)
+
   if (order) {
     // check the correct amount was paid
-    const paidCorrectAmount = order.totalPrice.toString() === value;
+    const paidCorrectAmount =( Math.round(order.totalPrice * 100) / 100).toFixed(2) === value;
+    console.log(order.totalPrice)
     if (!paidCorrectAmount) throw new Error('Incorrect amount paid');
-    console.log(paidCorrectAmount, value)
+
     order.isPaid = true;
     order.paidAt = Date.now();
     order.paymentResult = {
