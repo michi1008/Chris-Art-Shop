@@ -1,53 +1,93 @@
 .profile-container {
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  width: 80%;
+  border-radius: 3px;
+  background-color: var(--clr-primary-4);
+  height: 50%;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
 .profile {
-    width: 50%;
-    background:linear-gradient( rgba(255, 255, 255, 0.5) 100%, rgba(255, 255, 255, 0.7)100%),url("../assets/profile.jpg");
-    border-radius: 3px;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center; 
-    height: 80%; 
-    padding: 3rem;
-    overflow: hidden; 
+  width: 50%;
+  border-radius: 3px;
+  background-color: var(--clr-primary-4);
+  height: 85%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
+
 input::placeholder {
-    color: var(--clr-red);
-  }
+  color: var(--clr-red);
+}
+
+input:focus {
+  outline: 2px solid var(--clr-red);
+}
+
+.profileTitle {
+  color: var(--clr-white);
+  margin-left: 2rem;
+}
+
+.profileForm {
+  margin: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileForm label {
+  margin: 1rem 0;
+  color: var(--clr-white);
+}
+
+.profileInput {
+  padding: 0.8rem;
+  background-color: var(--clr-white);
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.profile-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.profile-orders {
   
-  input:focus {
-    outline: 2px solid var(--clr-red);
-  }
-    
-  .profileTitle {
-    color: var(--clr-primary-5);
-    margin-left: 2rem;
-  }
-  
-  .profileForm {
-    margin: 1.2rem;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .profileForm > Label {
-    margin: 1rem 0; 
-    color: var(--clr-white);
-  }
-  
-  .profileInput {
-    padding: 0.8rem;
-    background-color: var(--clr-white);
-    border: none;
-    border-radius: 0.5rem;
-  }
-  
-  .btn-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  
+}
+
+.profileOrder-Title {
+  color: var(--clr-white);
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+	vertical-align: middle;
+  margin-right: 2rem;
+}
+
+
+
+th, td {
+  border: 1px solid var(--clr-white);
+  padding: 0.8rem;
+}
+
+tbody td {
+  color: var(--clr-white);
+
+}
+
+thead th {
+  color: var(--clr-white);
+}
