@@ -71,7 +71,7 @@ export async function checkIfNewTransaction(orderModel, paypalTransactionId) {
  *
  */
 export async function verifyPayPalPayment(paypalTransactionId) {
-  console.log('transaction id is ', paypalTransactionId)
+  console.log('transaction id is ', paypalTransactionId);
   const accessToken = await getPayPalAccessToken();
   const paypalResponse = await fetch(
     `${PAYPAL_API_URL}/v2/checkout/orders/${paypalTransactionId}`,
@@ -85,7 +85,7 @@ export async function verifyPayPalPayment(paypalTransactionId) {
   const paypalData = await paypalResponse.json();
   console.log('Paypal Response ', paypalData);
   if (!paypalResponse.ok) throw new Error('Failed to verify payment');
- 
+
   return {
     verified: paypalData.status === 'COMPLETED',
     value: paypalData.purchase_units[0].amount.value,

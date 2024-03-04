@@ -1,45 +1,33 @@
+/* main */
 
 .register {
-    width: 50%;
-    background-image: url('../assets/register.jpg');
-    border-radius: 3px;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center; 
-    height: 60%; 
-    padding: 3rem;
-    opacity: 85%;
-}
-
-input::placeholder {
-  color: var(--clr-red);
-}
-
-input:focus {
-  outline: 2px solid var(--clr-red);
-}
-  
-.registerTitle {
-  font-size: 2rem;
-  color: var(--clr-white);
-  margin-left: 2rem;
-}
-
-.registerForm {
-  margin: 1.2rem;
+  gap: 3rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.registerForm > Label {
-  margin: 1rem 0; 
-  color: var(--clr-white);
+.register-title {
+  font-size: 2rem;
+  color: var(--clr-primary-2);
 }
 
-.registerInput {
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form-item input::placeholder {
+  color: var(--clr-primary-3);
+}
+
+.register-input {
   padding: 0.8rem;
-  background-color: var(--clr-white);
-  border: none;
+  background-color: var(--clr-primary-1);
   border-radius: 0.5rem;
 }
 
@@ -49,44 +37,44 @@ input:focus {
   justify-content: space-between;
 }
 
-.registerBtn {
-    color: var(--clr-white);
+.register-btn {
+  color: var(--clr-white);
 }
 
-@media screen and (min-width: 800px){
-  min-height:calc(100vh-5rem)
-  .register{
-    width:40%;
-  }
+.register-login-btn {
+  background-color: var(--clr-brown);
+}
 
-  .registerTitle {
+@media screen and (min-width: 800px) {
+  .register-title {
     font-size: 4rem;
     margin-left: 2rem;
     margin-top: 2rem;
   }
-  
-  .loginForm {
+
+  .login-form {
     margin-top: 1.2rem;
   }
-  
-  .registerForm > Label{
-    margin: 1rem 0; 
+
+  .register-form > label {
+    margin: 1rem 0;
+    font-size: 1.3rem;
   }
-  
-  .registerInput {
+
+  .register-input {
     padding: 0.8rem;
     border-radius: 0.5rem;
   }
-  
-  .registerBtn {
+
+  .register-btn {
     margin-top: 1.2rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
-  
-  .registerLoginBtn {
+
+  .register-login-btn {
+    margin-top: 1.2rem;
     border-radius: 0.5rem;
-    padding: 0.6rem;
-    background-color: var(--clr-grey);
-  } 
+    padding: 0.5rem;
+  }
 }

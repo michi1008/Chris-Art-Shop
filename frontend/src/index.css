@@ -1,21 +1,17 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 
 /*  Variables */
 
 :root {
-  --clr-primary-1: #e2dbbe;
-  --clr-primary-2: #d5d6aa;
-  --clr-primary-3: #287e59;
-  --clr-primary-4: #769fb6;
-  --clr-primary-5: #188fa7;
+  --clr-primary-1: #f4f6f0;
+  --clr-primary-2: #4f3750;
+  --clr-primary-3: #bd6140;
+  --clr-primary-4: #608560;
+
   --clr-grey: #7c7575;
-  --clr-blue: rgb(62, 62, 156);
   --clr-red: #ea6868;
-  --clr-green: rgb(38, 156, 38);
   --clr-brown: #461d1d;
-  --clr-white: #FFF;
+  --clr-white: #fff;
   --spacing: 0.1rem;
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
@@ -40,10 +36,11 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   font-family: 'Lato', sans-serif;
   background: var(--clr-primary-1);
-  color: var(--clr-primary-5);
+  color: var(--clr-primary-4);
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -51,7 +48,10 @@ body, html {
 ul {
   list-style-type: none;
 }
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
   color: inherit;
 }
@@ -117,17 +117,6 @@ p {
 }
 
 
-/* section */
-section {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 @media screen and (max-width: 992px) {
   .section {
@@ -141,12 +130,28 @@ section {
     transform: rotate(360deg);
   }
 }
-
-input:focus,
-select:focus,
-testare:focus {
-  outline: none;
+/* input */
+input {
+  padding: 0.8rem;
+  background-color: var(--clr-primary-1);
+  border: 2px solid var(--clr-primary-2);
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 1rem 1rem;
 }
+
+input::placeholder {
+  color: var(--clr-primary-3);
+  opacity: 1;
+}
+
+input:focus {
+  border-color: var(--clr-primary-4);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* loader */
 
 .loading {
   width: 6rem;
@@ -159,9 +164,11 @@ testare:focus {
   animation: spinner 0.6s linear infinite;
 }
 
+/* button */
+
 button {
   text-transform: uppercase;
-  background: var(--clr-primary-5);
+  background: var(--clr-primary-4);
   color: #fff;
   padding: 0.5rem 1rem;
   letter-spacing: var(--spacing);
@@ -176,6 +183,6 @@ button {
 }
 
 button:hover {
-  color: var(--clr-grey);
-  background: #fff;
+  color: var(--clr-white);
+  background: var(--clr-primary-3);
 }

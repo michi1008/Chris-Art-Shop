@@ -1,0 +1,133 @@
+.admin-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.admin-products-title {
+  margin-top: 2rem;
+}
+
+.admin-create-btn {
+  margin: 2rem 0;
+}
+
+.admin-products {
+  padding: 3rem 0;
+}
+
+.admin-product-image {
+  width: 100%;
+  height: 4rem;
+}
+
+.admin-products-edit {
+  margin-bottom: 0.8rem;
+  color: var(--clr-white);
+  background-color: var(--clr-primary-2);
+}
+
+.admin-products-trash {
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+}
+
+/* table */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  margin: 2rem 2rem;
+  width: 100%;
+}
+
+/* Remove border color from th and td */
+th,
+td {
+  border: 1px solid transparent; /* Set border color to transparent */
+  padding: 1rem;
+}
+
+/* Set border color for th and td within thead */
+thead th {
+  border: 1px solid var(--clr-primary-4);
+  background-color: var(--clr-primary-1);
+}
+
+/* Set border color for td within tbody */
+tbody td {
+  border: 1px solid var(--clr-primary-4);
+  background-color: var(--clr-primary-1);
+}
+
+thead th {
+  background-color: var(--clr-primary-1);
+}
+
+@media (max-width: 1120px) {
+  button {
+    font-size: 0.8rem;
+  }
+
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    padding: 1rem 1rem;
+  }
+
+  td:first-child {
+    padding-top: 2rem;
+  }
+
+  td:last-child {
+    padding-top: 2rem;
+  }
+  td::before {
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-right: 1rem;
+  }
+  .product-list-table td:nth-of-type(1)::before {
+    content: 'ID';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(2)::before {
+    content: 'NAME';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(3)::before {
+    content: 'IMAGE';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(4)::before {
+    content: 'PRICE';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(5)::before {
+    content: 'SIZE';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(6)::before {
+    content: 'DESC';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(7)::before {
+    content: 'STYLE';
+    color: var(--clr-brown);
+  }
+  .product-list-table td:nth-of-type(8)::before {
+    content: 'CATEGORY';
+    color: var(--clr-brown);
+  }
+
+  .admin-product-image {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

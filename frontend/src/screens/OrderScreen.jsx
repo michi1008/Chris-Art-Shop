@@ -5,19 +5,16 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { 
+import {
   useDeliverOrderMutation,
   useGetOrderDetailsQuery,
   usePayOrderMutation,
-  useGetPayPalClientIdQuery
- } from '../slices/ordersApiSlice';
- import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-
-
+  useGetPayPalClientIdQuery,
+} from '../slices/ordersApiSlice';
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 
 const OrderScreen = () => {
-
-    const { id: orderId } = useParams();
+  const { id: orderId } = useParams();
 
   const {
     data: order,
@@ -25,7 +22,7 @@ const OrderScreen = () => {
     isLoading,
     error,
   } = useGetOrderDetailsQuery(orderId);
-
+  console.log(order);
   const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
 
   const [deliverOrder, { isLoading: loadingDeliver }] =
@@ -64,7 +61,7 @@ const OrderScreen = () => {
   function onApprove(data, actions) {
     return actions.order.capture().then(async function (details) {
       try {
-        await payOrder({ orderId, details });
+        await payOrder({ orderId, details }).unwrap;
         refetch();
         toast.success('Order is paid');
       } catch (err) {
@@ -96,124 +93,136 @@ const OrderScreen = () => {
     refetch();
   };
 
-
   return isLoading ? (
     <Loader />
-    ): error ? (<Message />
-    ) : (
-        <section className='order-screen-container'>
-            <h2 className='order-screen-title'>Order: {order._id}</h2>
-            <div className="order-screen-details-container">
-                <div className="order-screen-items-container">  
-                <div className='order-screen-shipping'>
-                    <h3>Shipping</h3>
-                    <p className='order-screen-shipping-title'>
-                        Name: {order.user.name}
-                    </p>
-                    <p className='order-screen-shipping-title'>
-                        Email: {order.user.email}
-                    </p>
-                    <p className='order-screen-shipping-title'>
-                        Address:  
-                        {order.shippingAddress.address}, {order.shippingAddress.city}{' '}, 
-                        {order.shippingAddress.postalCode}, {order.shippingAddress.country}
-                    </p>
-                    { order.isDelivered ? (
-                        <Message variant='success'>Delivered on {order.deliveredAt}</Message>
-                    ) : (
-                        <Message variant='warning'>Not Delivered</Message>
-                    )}
-                    <hr className='order-screen-hr'></hr>
-                </div>
+  ) : error ? (
+    <Message />
+  ) : (
+    <div className='order-screen-container'>
+      <h2 className='order-screen-title'>Order: {order._id}</h2>
+      <div className='order-screen-details-container'>
+        <div className='order-screen-items-container'>
+          <div className='order-screen-items-left'>
+            <div className='order-screen-shipping'>
+              <h3>Shipping</h3>
+              <p className='order-screen-shipping'>Name: {order.user.name}</p>
+              <p className='order-screen-shipping'>Email: {order.user.email}</p>
+              <p className='order-screen-shipping'>
+                Address:
+                {order.shippingAddress.address}, {order.shippingAddress.city} ,
+                {order.shippingAddress.postalCode},{' '}
+                {order.shippingAddress.state}
+              </p>
+              {order.isDelivered ? (
+                <Message variant='success'>
+                  Delivered on {order.deliveredAt}
+                </Message>
+              ) : (
+                <Message variant='warning'>Not Delivered</Message>
+              )}
+              <hr className='order-screen-hr'></hr>
+            </div>
 
-                <div className='order-screen-payment'>
-                    <h3>Payment Method</h3>
-                    <p>
-                        <strong>Method: </strong> {order.paymentMethod}
-                    </p>
-                    
-                    { order.isPaid ? (
-                        <Message variant='success'>Paid on {order.paidAt}</Message>
-                    ) : (
-                        <Message variant='warning'>Not Paid</Message>
-                    )}
-                </div>
-                <hr className='order-screen-hr'></hr>
+            <div className='order-screen-payment'>
+              <h3>Payment Method</h3>
+              <h5>
+                <strong>Method: </strong>
+                {order.paymentMethod}
+              </h5>
 
-                <div className='order-screen-items'>
-                    <h3>Order Items</h3>
-                {order.orderItems.length === 0 ? (
-                    <Message variant='warning'>Your cart is empty</Message>
-                ) : (
-                    <ul>
-                    {order.orderItems.map((item, index) => (
-                        <li key={index} className='order-item-container'>
-                        <img src={item.image} alt={item.name} className='order-item-image' />
-                        <div className="order-item-info">
-                        <Link className='order-item-title' to={`/product/${item.product}`}>{item.name}</Link>
-                            ${(item.price * 100) / 100}
-                        </div>                  
-                        </li>
-                    ))}
-                    </ul>
-                    )}
-                    { order.isDelivered ? (
-                        <Message variant='success'>Delivered on {order.deliveredAt}</Message>
-                    ) : (
-                        <Message variant='warning'>Not Delivered</Message>
-                    )}
-                </div>
-                </div>
-            
-            <div className="order-summary">
-            <h3>Order Summary</h3>
-                <div className='order-summary-item'><h5>Items: </h5>${order.itemsPrice}</div> 
-                <div className='order-summary-item'><h5>Shipping: </h5>${order.shippingPrice}</div>  
-                <div className='order-summary-item'><h5>Tax: </h5>${order.taxPrice}</div> 
-                <hr className='order-summary-hr'></hr> 
-                <div className='order-summary-item order-summary-total'><h5>Total: </h5>${order.totalPrice}</div>  
-                {error && (
-                  <Message variant='warning'>{error.data.message}</Message>
-                )}
-                      {!order.isPaid && (
-                <div>
-                  {loadingPay && <Loader />}
+              {order.isPaid ? (
+                <Message variant='success'>Paid on {order.paidAt}</Message>
+              ) : (
+                <Message variant='warning'>Not Paid</Message>
+              )}
+            </div>
+            <hr className='order-screen-hr'></hr>
 
-                  {isPending ? (
-                    <Loader />
-                  ) : (
-                      <div>
-                        <PayPalButtons
-                          createOrder={createOrder}
-                          onApprove={onApprove}
-                          onError={onError}
-                        ></PayPalButtons>
+            <div className='order-screen-items'>
+              <h3>Order Items</h3>
+              {order.orderItems.length === 0 ? (
+                <Message variant='warning'>Your cart is empty</Message>
+              ) : (
+                <ul>
+                  {order.orderItems.map((item, index) => (
+                    <li key={index} className='order-item-container'>
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className='order-item-image'
+                      />
+                      <div className='order-item-info'>
+                        <Link
+                          className='order-item-title'
+                          to={`/product/${item.product}`}
+                        >
+                          {item.name}
+                        </Link>
+                        ${(item.price * 100) / 100}
                       </div>
-                  )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {order.isDelivered ? (
+                <Message variant='success'>
+                  Delivered on {order.deliveredAt}
+                </Message>
+              ) : (
+                <Message variant='warning'>Not Delivered</Message>
+              )}
+            </div>
+          </div>
+          <div className='order-screen-items-right'>
+            <div className='vl'></div>
+          </div>
+        </div>
+
+        <div className='order-summary'>
+          <h3>Order Summary</h3>
+          <h4>Items: ${order.itemsPrice}</h4>
+          <h4>Shipping: ${order.shippingPrice}</h4>
+          <h4>Tax: ${order.taxPrice}</h4>
+          <hr className='order-summary-hr'></hr>
+          <h4>Total: ${order.totalPrice}</h4>
+          {error && <Message variant='warning'>{error.data.message}</Message>}
+          {!order.isPaid && (
+            <div>
+              {loadingPay && <Loader />}
+
+              {isPending ? (
+                <Loader />
+              ) : (
+                <div>
+                  <PayPalButtons
+                    createOrder={createOrder}
+                    onApprove={onApprove}
+                    onError={onError}
+                  ></PayPalButtons>
                 </div>
               )}
-
-              {loadingDeliver && <Loader />}
-              {userInfo &&
-                userInfo.isAdmin &&
-                order.isPaid &&
-                !order.isDelivered && (
-                  <div>
-                    <button
-                      type='button'
-                     
-                      onClick={deliverHandler}
-                    >
-                      Mark As Delivered
-                    </button>
-                  </div>
-                )}
-        </div>     
             </div>
-            
-            
-        </section>
-    );
-}
+          )}
+
+          {loadingDeliver && <Loader />}
+          {userInfo &&
+            userInfo.isAdmin &&
+            order.isPaid &&
+            !order.isDelivered && (
+              <div>
+                <button
+                  className='order-delivered-btn'
+                  type='button'
+                  onClick={deliverHandler}
+                >
+                  Mark As Delivered
+                </button>
+              </div>
+            )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default OrderScreen;

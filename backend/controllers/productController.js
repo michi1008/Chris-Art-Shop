@@ -5,8 +5,42 @@ import Product from '../models/productModel.js';
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-    const products = await Product.find({});
-    res.status(200).json(products);
+  const { keyword, pageNumber, category, style, sortBy } = req.query;
+  const pageSize = 8;
+  const page = Number(pageNumber) || 1;
+
+  // Build query conditions based on query parameters
+  const query = {};
+
+  if (keyword) {
+    query.name = { $regex: keyword, $options: 'i' };
+  }
+
+  if (category) {
+    query.category = category;
+  }
+
+  if (style) {
+    query.style = style;
+  }
+
+  // Apply sorting
+  let sort = {};
+  if (sortBy) {
+    if (sortBy === 'nameAZ') {
+      sort = { name: 1 }; // Sort by name in ascending order
+    } else if (sortBy === 'nameZA') {
+      sort = { name: -1 }; // Sort by name in descending order
+    }
+  }
+
+  const count = await Product.countDocuments(query);
+  const products = await Product.find(query)
+    .limit(pageSize)
+    .skip(pageSize * (page - 1))
+    .sort(sort);
+
+  res.status(200).json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @desc    Fetch single product
@@ -14,7 +48,7 @@ const getProducts = asyncHandler(async (req, res) => {
 // @access  Public
 const getProductById = asyncHandler(async (req, res) => {
   // NOTE: checking for valid ObjectId to prevent CastError moved to separate
-  // middleware. 
+  // middleware.
 
   const product = await Product.findById(req.params.id);
   if (product) {
@@ -34,10 +68,12 @@ const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
     name: 'Sample name',
     image: '/images/sample.jpg',
-    OriginalPrice: 0,
-    PrintPrice: 0,
+    price: 0,
+    size: '12x16',
     user: req.user._id,
     desc: 'Sample description',
+    category: 'Landscape',
+    style: 'Oil on Canvas',
   });
 
   const createdProduct = await product.save();
@@ -48,8 +84,7 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-  const { name, image, size, price, desc } =
-    req.body;
+  const { name, image, size, price, desc, category, style } = req.body;
 
   const product = await Product.findById(req.params.id);
 
@@ -60,6 +95,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.category = category;
     product.size = size;
     product.price = price;
+    product.style = style;
 
     const updatedProduct = await product.save();
     res.json(updatedProduct);

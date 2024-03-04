@@ -11,7 +11,7 @@ import { setCredentials } from '../slices/authSlice';
 import { FaTimes } from 'react-icons/fa';
 
 const ProfileScreen = () => {
-    const [name, setName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -20,7 +20,8 @@ const ProfileScreen = () => {
 
   const { data: orders, isLoading, error } = useGetMyOrdersQuery();
 
-  const [updateProfile, { isLoading: loadingUpdateProfile }] = useProfileMutation();
+  const [updateProfile, { isLoading: loadingUpdateProfile }] =
+    useProfileMutation();
 
   useEffect(() => {
     setName(userInfo.name);
@@ -35,9 +36,6 @@ const ProfileScreen = () => {
     } else {
       try {
         const res = await updateProfile({
-          // NOTE: here we don't need the _id in the request payload as this is
-          // not used in our controller.
-          // _id: userInfo._id,
           name,
           email,
           password,
@@ -48,59 +46,64 @@ const ProfileScreen = () => {
         toast.error(err?.data?.message || err.error);
       }
     }
-  }
+  };
   return (
     <section className='profile-container'>
-        <div className="profile">
-            <h2 className='profileTitle'>User Profile</h2>
-            <form className='profileForm' onSubmit={submitHandler}>
+      <div className='profile'>
+        <h2 className='profile-title'>User Profile</h2>
+        <form className='profile-form' onSubmit={submitHandler}>
+          <div className='profile-item'>
             <label>Name</label>
-          <input
-            type='text'
-            className='profileInput'
-            placeholder='Enter your name...'
-            id='name'
-            name='name'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />    
-          <label>Email</label>
-          <input
-            type='email'
-            className='profileInput'
-            placeholder='Enter your email...'
-            id='email'
-            name='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type='password'
-            className='profileInput'
-            placeholder='Enter your password...'
-            id='password'
-            name='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-           <label>Password Confirm</label>
-          <input
-            type='password'
-            className='profileInput'
-            placeholder='Confirm your password...'
-            id='confrimPassword'
-            name='confirmPassword'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+            <input
+              type='text'
+              placeholder='Enter your name...'
+              id='name'
+              name='name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className='profile-item'>
+            <label>Email</label>
+            <input
+              type='email'
+              placeholder='Enter your email...'
+              id='email'
+              name='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className='profile-item'>
+            <label>Password</label>
+            <input
+              type='password'
+              placeholder='Enter your password...'
+              id='password'
+              name='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className='profile-item'>
+            <label>Password Confirm</label>
+            <input
+              type='password'
+              placeholder='Confirm your password...'
+              id='confrimPassword'
+              name='confirmPassword'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
           <div className='profile-btn-container'>
-          <button type='submit'>Update</button></div>
-          { loadingUpdateProfile && <Loader />}
-          </form>
-        </div>
-        <div className="profile-orders">
-        <h2 className='profileOrder-Title'>User Orders</h2>
+            <button type='submit'>Update</button>
+          </div>
+          {loadingUpdateProfile && <Loader />}
+        </form>
+      </div>
+      <div className='profile-orders'>
+        <h2 className='profileOrders-title'>User Orders</h2>
         {isLoading ? (
           <Loader />
         ) : error ? (
@@ -108,7 +111,7 @@ const ProfileScreen = () => {
             {error?.data?.message || error.error}
           </Message>
         ) : (
-          <table className='profile-order-table'>
+          <table className='profile-orders-table'>
             <thead>
               <tr>
                 <th>ID</th>
@@ -141,9 +144,7 @@ const ProfileScreen = () => {
                   </td>
                   <td>
                     <Link to={`/order/${order._id}`}>
-                      <button className='btn-sm' variant='light'>
-                        Details
-                      </button>
+                      <button className='table-inside-btn'>Details</button>
                     </Link>
                   </td>
                 </tr>
@@ -151,9 +152,9 @@ const ProfileScreen = () => {
             </tbody>
           </table>
         )}
-        </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default ProfileScreen
+export default ProfileScreen;

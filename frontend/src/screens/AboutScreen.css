@@ -1,0 +1,39 @@
+.about-artist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.about-artist h1,
+.about-service h1 {
+    color: var(--clr-primary-3);
+}
+
+.profile-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.profile-image {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-shadow);
+}
+
+.history p,
+.statement p{
+    color: var(--clr-brown);
+
+}
+
+
+
+
+

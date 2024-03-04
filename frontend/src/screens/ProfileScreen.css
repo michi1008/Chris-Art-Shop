@@ -1,57 +1,42 @@
+/* main */
 .profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 90%;
+  border-radius: 3px;
+  height: 50%;
+  margin: 3rem;
+}
+/* profile */
+.profile {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.profile-title {
+  color: var(--clr-primary-5);
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.profile-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-items: center;
-  width: 80%;
-  border-radius: 3px;
-  background-color: var(--clr-primary-4);
-  height: 50%;
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-}
-
-.profile {
-  width: 50%;
-  border-radius: 3px;
-  background-color: var(--clr-primary-4);
-  height: 85%;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-}
-
-input::placeholder {
-  color: var(--clr-red);
-}
-
-input:focus {
-  outline: 2px solid var(--clr-red);
-}
-
-.profileTitle {
-  color: var(--clr-white);
-  margin-left: 2rem;
-}
-
-.profileForm {
-  margin: 1.2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.profileForm label {
-  margin: 1rem 0;
-  color: var(--clr-white);
-}
-
-.profileInput {
-  padding: 0.8rem;
-  background-color: var(--clr-white);
-  border: none;
-  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .profile-btn-container {
@@ -61,33 +46,108 @@ input:focus {
   margin-top: 2rem;
 }
 
+/* profile orders */
+
 .profile-orders {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(900px, 100% - 3rem);
+  margin-inline: auto;
 }
 
-.profileOrder-Title {
-  color: var(--clr-white);
+.profileOrders-title {
+  color: var(--clr-primary-5);
 }
 
 table {
   border-collapse: collapse;
+  border-spacing: 0;
   text-align: center;
-	vertical-align: middle;
-  margin-right: 2rem;
+  vertical-align: middle;
+  margin: 2rem 2rem;
+  width: 100%;
 }
 
-
-
-th, td {
-  border: 1px solid var(--clr-white);
-  padding: 0.8rem;
+/* Remove border color from th and td */
+th,
+td {
+  border: 1px solid transparent; /* Set border color to transparent */
+  padding: 1rem;
 }
 
+/* Set border color for th and td within thead */
+thead th {
+  border: 1px solid var(--clr-primary-5);
+  background-color: var(--clr-white);
+}
+
+/* Set border color for td within tbody */
 tbody td {
-  color: var(--clr-white);
-
+  border: 1px solid var(--clr-primary-5);
+  background-color: var(--clr-white);
 }
 
 thead th {
-  color: var(--clr-white);
+  background-color: var(--clr-white);
+}
+
+@media (max-width: 1200px) {
+  .profile-container {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  button {
+    font-size: 0.8rem;
+  }
+
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    padding: 1rem 1rem;
+  }
+
+  td:first-child {
+    padding-top: 2rem;
+  }
+
+  td:last-child {
+    padding-top: 2rem;
+  }
+  td::before {
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-right: 1rem;
+  }
+  .profile-orders-table td:nth-of-type(1)::before {
+    content: 'ID';
+    color: var(--clr-brown);
+  }
+  .profile-orders-table td:nth-of-type(2)::before {
+    content: 'DATE';
+    color: var(--clr-brown);
+  }
+  .profile-orders-table td:nth-of-type(3)::before {
+    content: 'TOTAL';
+    color: var(--clr-brown);
+  }
+  .profile-orders-table td:nth-of-type(4)::before {
+    content: 'PAID';
+    color: var(--clr-brown);
+  }
+  .profile-orders-table td:nth-of-type(5)::before {
+    content: 'DELIVERED';
+    color: var(--clr-brown);
+  }
+  .profile-orders-table td:nth-of-type(6)::before {
+    content: 'DETAIL';
+    color: var(--clr-brown);
+  }
 }

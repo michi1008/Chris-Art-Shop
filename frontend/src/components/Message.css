@@ -1,15 +1,15 @@
 .message {
-    font-size: 1.2rem;
-  }
-  
-  .message.info {
-    color: var(--clr-blue); 
-  }
-  
-  .message.success {
-    color: var(--clr-green);
-  }
-  
-  .message.warning {
-    color: var(--clr-red);
-  }
+  font-size: 1.2rem;
+}
+
+.message.info {
+  color: var(--clr-blue);
+}
+
+.message.success {
+  color: var(--clr-green);
+}
+
+.message.warning {
+  color: var(--clr-red);
+}

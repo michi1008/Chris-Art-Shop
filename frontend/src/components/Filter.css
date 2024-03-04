@@ -1,0 +1,50 @@
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.filter-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.filter-left > label {
+  font-size: 1.5rem;
+}
+
+.filter-option {
+  padding: 0.8rem;
+  background-color: var(--clr-primary-3);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--clr-white);
+}
+
+/* filter-apply-botton */
+
+.apply-filter-btn {
+  background-color: var(--clr-brown);
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+/* filter-clear-botton */
+.clear-filter-btn {
+  background-color: var(--clr-primary-2);
+  font-size: 1rem;
+}
+
+/* vertical line */
+.vl {
+  border-right: 6px solid var(--clr-primary-4);
+  height: 40rem;
+  margin-top: 4rem;
+}

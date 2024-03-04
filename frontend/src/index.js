@@ -11,8 +11,9 @@ import {
 import { Provider } from 'react-redux';
 import store from './store';
 import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
 import HomeScreen from './screens/HomeScreen';
-import About from './screens/About';
+import AboutScreen from './screens/AboutScreen';
 import Contact from './screens/Contact';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
@@ -23,25 +24,48 @@ import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import { PayPalScriptProvider} from '@paypal/react-paypal-js';
+import OrderListScreen from './screens/Admin/OrderListScreen';
+import ProductListScreen from './screens/Admin/ProductListScreen';
+import ProductEditScreen from './screens/Admin/ProductEditScreen';
+import UserListScreen from './screens/Admin/UserListScreen';
+import UserListEditScreen from './screens/Admin/UserListEditScreen';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<HomeScreen />} />
-      <Route path='/about' element={<About />} />
+      <Route path='/search/:keyword' element={<HomeScreen />} />
+      <Route path='/page/:pageNumber' element={<HomeScreen />} />
+      <Route
+        path='/search/:keyword/page/:pageNumber'
+        element={<HomeScreen />}
+      />
+      <Route path='/about' element={<AboutScreen />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/product/:id' element={<ProductScreen />} />
       <Route path='/cart' element={<CartScreen />} />
       <Route path='/login' element={<LoginScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
-    {/* Registered users */}
+      {/* Registered users */}
       <Route path='' element={<PrivateRoute />}>
-      <Route path='/shipping' element={<ShippingScreen />} />
-      <Route path='/payment' element={<PaymentScreen />} />
-      <Route path='/placeorder' element={<PlaceOrderScreen />} />
-      <Route path='/order/:id' element={<OrderScreen />} />
-      <Route path='/profile' element={<ProfileScreen />} />
+        <Route path='/shipping' element={<ShippingScreen />} />
+        <Route path='/payment' element={<PaymentScreen />} />
+        <Route path='/placeorder' element={<PlaceOrderScreen />} />
+        <Route path='/order/:id' element={<OrderScreen />} />
+        <Route path='/profile' element={<ProfileScreen />} />
+      </Route>
+      <Route path='' element={<AdminRoute />}>
+        <Route path='/admin/orderList' element={<OrderListScreen />} />
+        <Route path='/admin/productList' element={<ProductListScreen />} />
+        <Route
+          path='/admin/productList/:pageNumber'
+          element={<ProductListScreen />}
+        />
+        <Route path='/admin/product/:id/edit' element={<ProductEditScreen />} />
+        <Route path='/admin/userList' element={<UserListScreen />} />
+        <Route path='/admin/user/:id/edit' element={<UserListEditScreen />} />
       </Route>
     </Route>
   )
@@ -50,10 +74,12 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PayPalScriptProvider deferLoading={true}>
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>   
-    </Provider>     
+    <HelmetProvider>
+      <Provider store={store}>
+        <PayPalScriptProvider deferLoading={true}>
+          <RouterProvider router={router} />
+        </PayPalScriptProvider>
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );

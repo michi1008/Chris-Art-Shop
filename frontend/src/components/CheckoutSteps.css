@@ -1,17 +1,16 @@
 .steps {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2.5rem;
-    
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2.5rem;
 
-.steps-link {
+  .steps-link {
     color: var(--clr-brown);
-}
+  }
 
-.steps-link:disabled {
+  .steps-link:disabled {
     color: var(--clr-red);
-}
+  }
 }

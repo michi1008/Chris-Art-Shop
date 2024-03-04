@@ -1,0 +1,86 @@
+.admin-userList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.admin-userList-title {
+  color: var(--clr-brown);
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+th,
+td {
+  border: 1px solid var(--clr-primary-5);
+  padding: 0.8rem;
+}
+
+tbody td {
+  color: var(--clr-primary-5);
+}
+
+thead th {
+  color: var(--clr-primary-5);
+}
+
+.admin-userList-edit {
+  margin-right: 0.8rem;
+  background-color: var(--clr-primary-3);
+}
+
+.admin-userList-delete {
+  background-color: var(--clr-red);
+}
+
+@media (max-width: 1120px) {
+  button {
+    font-size: 0.8rem;
+  }
+
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    padding: 1rem 1rem;
+  }
+
+  td:first-child {
+    padding-top: 2rem;
+  }
+
+  td:last-child {
+    padding-top: 2rem;
+  }
+  td::before {
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-right: 1rem;
+  }
+  .user-list-table td:nth-of-type(1)::before {
+    content: 'ID';
+    color: var(--clr-brown);
+  }
+  .user-list-table td:nth-of-type(2)::before {
+    content: 'NAME';
+    color: var(--clr-brown);
+  }
+  .user-list-table td:nth-of-type(3)::before {
+    content: 'EMAIL';
+    color: var(--clr-brown);
+  }
+  .user-list-table td:nth-of-type(4)::before {
+    content: 'ADMIN';
+    color: var(--clr-brown);
+  }
+}

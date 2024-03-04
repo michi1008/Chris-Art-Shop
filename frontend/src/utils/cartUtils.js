@@ -25,7 +25,7 @@ export const updateCart = (state) => {
   state.taxPrice = addDecimals(taxPrice);
 
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
-  console.log(totalPrice)
+  console.log(totalPrice);
   // Calculate the total price
   state.totalPrice = addDecimals(totalPrice);
 

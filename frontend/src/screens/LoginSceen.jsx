@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './LoginScreen.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../components/Loader';
 import { useLoginMutation } from '../slices/usersApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { toast } from 'react-toastify';
 
-
 const LoginSceen = () => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -41,46 +39,53 @@ const LoginSceen = () => {
     }
   };
 
-    return (
-        <section>  
-            <div className="login">
-            <span className='loginTitle'>Login</span>
-        <form className='loginForm' onSubmit={submitHandler}>         
+  return (
+    <div className='login'>
+      <span className='login-title'>Login</span>
+      <form className='login-form' onSubmit={submitHandler}>
+        <div className='form-item'>
           <label>Email</label>
           <input
             type='email'
-            className='loginInput'
+            className='login-input'
             placeholder='Enter your email...'
             id='email'
             name='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+        </div>
+        <div className='form-item'>
           <label>Password</label>
           <input
             type='password'
-            className='loginInput'
+            className='login-input'
             placeholder='Enter your password...'
             id='password'
             name='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className='btn-container'>
-          <button className='loginBtn' type='submit' disabled={ isLoading }>
+        </div>
+        <div className='btn-container'>
+          <button className='login-btn' type='submit' disabled={isLoading}>
             Login
           </button>
-          { isLoading && <Loader />}
-          <button className='loginBtn loginSignupBtn'>
-            <Link className='link' to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+
+          {isLoading && <Loader />}
+
+          <button className='login-signin-btn'>
+            <Link
+              className='link'
+              to={redirect ? `/register?redirect=${redirect}` : '/register'}
+            >
               Signup
             </Link>
           </button>
-          </div>
-        </form>          
-        </div>        
-        </section>
-    )
-}
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default LoginSceen;
