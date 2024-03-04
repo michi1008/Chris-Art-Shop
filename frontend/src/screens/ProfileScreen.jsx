@@ -48,7 +48,7 @@ const ProfileScreen = () => {
     }
   };
   return (
-    <section className='profile-container'>
+    <div className='profile-container'>
       <div className='profile'>
         <h2 className='profile-title'>User Profile</h2>
         <form className='profile-form' onSubmit={submitHandler}>
@@ -153,7 +153,7 @@ const ProfileScreen = () => {
           </table>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

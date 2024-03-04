@@ -34,11 +34,7 @@ const HomeScreen = () => {
 
   return (
     <div className='home'>
-      {keyword && (
-        <Link to='/'>
-          <button className='home-backbtn'>Go Back</button>
-        </Link>
-      )}
+      
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -51,6 +47,11 @@ const HomeScreen = () => {
           <div className='gallery'>
             <h1 className='gallery-title'>Art Gallery</h1>
             <div className='art'>
+            {keyword && (
+        <Link to='/'>
+          <button className='home-backbtn'>Go Back</button>
+        </Link>
+      )}
               {data.products.map((product) => (
                 <h3 key={product._id}>
                   <Product product={product} />
