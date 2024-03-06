@@ -40,3 +40,16 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 800px) {
+  .home-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .home-filter {
+    flex: 1;
+    align-self: center;
+  }
+}

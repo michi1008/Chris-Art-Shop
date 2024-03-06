@@ -1,81 +1,177 @@
 .about-artist {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
 }
 
-.about-artist h1,
-.about-service h1 {
-    color: var(--clr-primary-3);
+.about-artist-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem;
 }
 
-.profile-title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 20rem;
-    width: 30rem;
-    border-radius: 0.3rem;
-    box-shadow: var(--dark-shadow);
-    background-color: var(--clr-white);
+.about-artist-artist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-shadow);
+  background-color: var(--clr-white);
 }
-
-.profile-title h2 {
-    text-align: center;
-    padding-right: 2rem;
-}
-
 
 .profile-image {
-    width: 20rem;
-    height: 20rem;
-    object-fit: cover;
-    border-radius: 0.3rem;
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
   box-shadow: var(--dark-shadow);
   clip-path: polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%);
 }
 
+.about-artist-sample {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  width: 30rem;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-shadow);
+  background-color: var(--clr-white);
+}
+
+.sample-image {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-shadow);
+}
+
+.about-artist-sample h2 {
+  text-align: center;
+}
+
 /* artist profile content */
+
 .profile-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 .artist-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    height: 30rem;
-    width: 40rem;
-    border-radius: 0.3rem;
-    box-shadow: var(--dark-shadow);
-    background-color: var(--clr-white);
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 30rem;
+  width: 40rem;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-shadow);
+  background-color: var(--clr-white);
+  margin-bottom: 2rem;
 }
 .artist-info-title {
-    color: var(--clr-primary-4);
+  color: var(--clr-primary-4);
 }
 
-
 .artist-info-content {
-    background-color: var(--clr-primary-4);
-    height: 25rem;
-    width: 40rem;
-    border-radius: 0 0 0.3rem 0.3rem;
-    box-shadow: var(--dark-shadow);
+  background-color: var(--clr-primary-3);
+  height: 25rem;
+  width: 40rem;
+  border-radius: 0 0 0.3rem 0.3rem;
+  box-shadow: var(--dark-shadow);
 }
 
 .artist-info-content p {
-    color:var(--clr-white);
-    font-size: 1.3rem;
-    padding: 2rem;
+  color: var(--clr-white);
+  font-size: 1.3rem;
+  padding: 2rem;
 }
 
+/* about service */
 
+.about-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem;
 
+}
+.service-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.service-content-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  width: 25rem;
+  gap: 3rem;
+  border-radius: 0.3rem;
+  box-shadow: var(--dark-shadow);
+  background-color: var(--clr-white);
+  padding: 2rem;
+}
+
+.service-content-item h3 {
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .about-artist-profile {
+        flex-direction: column;
+      }
+
+      .profile-content {
+        flex-direction: column;
+        
+      }
+      .service-content {
+        
+        flex-direction: column;
+     
+      }
+      .service-content-item {
+        flex-direction: column;
+        height: 15rem;
+        width: 20rem;
+      }
+
+      .artist-info-title {
+        line-height: 0;
+      }
+     
+      .artist-info {
+        height: 25rem;
+        width: 30rem;
+      }
+
+      
+      .artist-info-content {
+        height: 21rem;
+        width: 30rem;
+      }
+      
+      .artist-info-content p {
+        font-size: 1rem;
+      }
+      
+}

@@ -24,24 +24,21 @@
 .profile-form {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: center;
   justify-items: center;
+  margin-bottom: 2rem;
 }
 
 .profile-item {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
   gap: 1rem;
 }
 
-.profile-btn-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
+
 
 /* profile orders */
 

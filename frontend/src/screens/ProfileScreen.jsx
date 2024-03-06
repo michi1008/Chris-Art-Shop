@@ -53,54 +53,76 @@ const ProfileScreen = () => {
         <h2 className='profile-title'>User Profile</h2>
         <form className='profile-form' onSubmit={submitHandler}>
           <div className='profile-item'>
+            <div className="profile-item-label">
             <label>Name</label>
-            <input
+            </div>
+           <div className="profile-item-input">
+           <input
               type='text'
               placeholder='Enter your name...'
               id='name'
               name='name'
+              size='40'
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+           </div>
+            
           </div>
           <div className='profile-item'>
+          <div className="profile-item-label">
             <label>Email</label>
+            </div>
+            <div className="profile-item-input">
             <input
               type='email'
               placeholder='Enter your email...'
               id='email'
               name='email'
+              size='40'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            </div>
           </div>
           <div className='profile-item'>
+          <div className="profile-item-label">
             <label>Password</label>
+            </div>
+            <div className="profile-item-input">
             <input
               type='password'
               placeholder='Enter your password...'
               id='password'
               name='password'
+              size='40'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            </div>
           </div>
           <div className='profile-item'>
+          <div className="profile-item-label">
             <label>Password Confirm</label>
+            </div>
+            <div className="profile-item-input">
             <input
               type='password'
               placeholder='Confirm your password...'
               id='confrimPassword'
               name='confirmPassword'
+              size='40'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            </div>
           </div>
           <div className='profile-btn-container'>
             <button type='submit'>Update</button>
           </div>
           {loadingUpdateProfile && <Loader />}
         </form>
+       
       </div>
       <div className='profile-orders'>
         <h2 className='profileOrders-title'>User Orders</h2>

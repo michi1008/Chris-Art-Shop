@@ -117,14 +117,6 @@ p {
 }
 
 
-
-@media screen and (max-width: 992px) {
-  .section {
-    width: 95vw;
-    padding: 5rem 0;
-  }
-}
-
 @keyframes spinner {
   to {
     transform: rotate(360deg);
