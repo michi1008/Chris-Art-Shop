@@ -6,7 +6,7 @@ import Product from '../models/productModel.js';
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
   const { keyword, pageNumber, category, style, sortBy } = req.query;
-  const pageSize = 8;
+  const pageSize = process.env.PAGINATION_LIMIT
   const page = Number(pageNumber) || 1;
 
   // Build query conditions based on query parameters
