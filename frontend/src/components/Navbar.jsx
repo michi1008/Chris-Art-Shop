@@ -62,7 +62,7 @@ const Navbar = () => {
         <li>
           {userInfo ? (
             <div>
-              <NavLink to='/profile'>Profile</NavLink>
+              <NavLink to='/profile'>User Profile</NavLink>
             </div>
           ) : (
             <NavLink to='/login'>

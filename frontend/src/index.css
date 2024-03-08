@@ -124,12 +124,11 @@ p {
 }
 /* input */
 input {
-  padding: 0.8rem;
   background-color: var(--clr-primary-1);
   border: 2px solid var(--clr-primary-2);
   border-radius: 0.5rem;
   width: 100%;
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 
 input::placeholder {

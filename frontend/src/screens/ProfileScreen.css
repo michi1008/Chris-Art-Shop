@@ -25,18 +25,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-items: space-between;
   margin-bottom: 2rem;
 }
 
 .profile-item {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; /* Align items vertically to the start */
+  justify-content: flex-start; /* Align items horizontally to the start */
   padding: 1rem;
   gap: 1rem;
 }
+
 
 
 
@@ -52,7 +53,7 @@
 }
 
 .profileOrders-title {
-  color: var(--clr-primary-5);
+  color: var(--clr-primary-3);
 }
 
 table {
