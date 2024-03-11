@@ -74,7 +74,7 @@ const LoginSceen = () => {
 
           {isLoading && <Loader />}
 
-          <button className='login-signin-btn'>
+          <button className='login-register-btn'>
             <Link
               className='link'
               to={redirect ? `/register?redirect=${redirect}` : '/register'}

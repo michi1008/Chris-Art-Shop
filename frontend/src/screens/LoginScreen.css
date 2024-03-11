@@ -1,9 +1,11 @@
+/* main */
+
 .login {
+  gap: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 2rem;
+  justify-content: center;
 }
 
 .login-title {
@@ -14,29 +16,36 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: start;
+  justify-content: center;
   gap: 1rem;
 }
 
-.form-item > label {
-  color: var(--clr-primary-2);
-  font-size: 1.5rem;
-}
-.btn-container {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  
+.form-item input::placeholder {
+  color: var(--clr-primary-3);
 }
 
-.login-signin-btn {
+.login-input {
+  padding: 0.8rem;
+  background-color: var(--clr-primary-1);
+  border-radius: 0.5rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-btn {
+  color: var(--clr-white);
+}
+
+.login-login-btn {
   background-color: var(--clr-brown);
 }
 
 @media screen and (min-width: 800px) {
-
   .login-title {
     font-size: 4rem;
     margin-left: 2rem;
@@ -49,7 +58,7 @@
 
   .login-form > label {
     margin: 1rem 0;
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 
   .login-input {
@@ -57,12 +66,25 @@
     border-radius: 0.5rem;
   }
 
-  .login-btn {
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+  /* button */
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: center;
+    gap: 2rem;
   }
 
-  .login-signin-btn {
+  .login-btn {
+    margin-top: 1.2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--clr-primary-2);
+  }
+
+  .login-register-btn {
+    margin-top: 1.2rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
