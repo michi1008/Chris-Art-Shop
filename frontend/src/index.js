@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
 import HomeScreen from './screens/HomeScreen';
 import AboutScreen from './screens/AboutScreen';
-import Contact from './screens/Contact';
+import ContactScreen from './screens/ContactScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginSceen';
@@ -43,7 +43,7 @@ const router = createBrowserRouter(
         element={<HomeScreen />}
       />
       <Route path='/about' element={<AboutScreen />} />
-      <Route path='/contact' element={<Contact />} />
+      <Route path='/contact' element={<ContactScreen />} />
       <Route path='/product/:id' element={<ProductScreen />} />
       <Route path='/cart' element={<CartScreen />} />
       <Route path='/login' element={<LoginScreen />} />

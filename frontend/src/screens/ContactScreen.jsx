@@ -1,5 +1,5 @@
 import React from 'react';
-import './Contact.css';
+import './ContactScreen.css';
 import { FaFacebook } from 'react-icons/fa';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
