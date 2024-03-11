@@ -5,7 +5,8 @@ import { FaInstagramSquare } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import riding from '../assets/chris-riding.jpg';
 import artEvent from '../assets/chris-art-event.jpg';
-const ContaceScreen = () => {
+
+const ContactScreen = () => {
   return (
     <div className="contact-container">
       <h1>Contact</h1>
@@ -28,4 +29,4 @@ const ContaceScreen = () => {
   )
 }
 
-export default ContaceScreen
+export default ContactScreen
