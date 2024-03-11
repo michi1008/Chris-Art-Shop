@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import { FaFacebook } from 'react-icons/fa';
 import { FaInstagramSquare } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,6 +17,9 @@ const Footer = () => {
           </a>
           <a href='https://www.instagram.com/chris_lange_art/'>
             <FaInstagramSquare className='social-icon' />
+          </a>
+          <a href="mailto:chrislangeart1@gmail.com">
+            <MdEmail className='social-icon'/>
           </a>
         </div>
       </div>
