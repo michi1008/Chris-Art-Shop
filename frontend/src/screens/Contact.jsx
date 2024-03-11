@@ -1,5 +1,5 @@
 import React from 'react';
-import './contact.css';
+import './Contact.css';
 import { FaFacebook } from 'react-icons/fa';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
@@ -14,7 +14,7 @@ const ContaceScreen = () => {
         <img src={artEvent} alt="artist in an art event" />
       </div>
       <div className='social-links'>
-          <a href='https://www.facebook.com/profile.php?id=100009509298193'>
+          <a href='https://www.facebook.com/search/top?q=chris%20lange%20art'>
             <FaFacebook className='social-icon' />
           </a>
           <a href='https://www.instagram.com/chris_lange_art/'>

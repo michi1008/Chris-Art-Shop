@@ -51,12 +51,6 @@
 
 @media screen and (max-width: 800px) {
   .vl {
-    border-right: none; /* Remove the vertical border */
-    border-bottom: 6px solid var(--clr-primary-4); /* Add a horizontal border */
-    width: 100%; /* Make the line span the full width of its container */
-    height: auto; /* Set height to auto to allow the browser to determine the height based on content */
-    margin-top: 0; /* Remove top margin */
-    margin-left: auto; /* Center the line horizontally */
-    margin-right: auto;
+    display:none
   }
 }

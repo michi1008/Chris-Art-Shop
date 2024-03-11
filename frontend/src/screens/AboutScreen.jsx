@@ -71,19 +71,19 @@ const AboutScreen = () => {
             <MdFilterFrames
               style={{ fontSize: '4rem', color: 'var(--clr-primary-2)' }}
             />
-            <h4>Place the paining to the frame </h4>
+            <h4>Place the painting to the frame </h4>
           </div>
           <div className='service-content-item'>
             <MdLocalShipping
               style={{ fontSize: '4rem', color: 'var(--clr-primary-2)' }}
             />
-            <h4>Deliver the paining to your place safely</h4>
+            <h4>Deliver the painting to your place safely</h4>
           </div>
           <div className='service-content-item'>
             <TbAdjustmentsDown
               style={{ fontSize: '4rem', color: 'var(--clr-primary-2)' }}
             />
-            <h4>Paint only for you with an additional cost </h4>
+            <h4>Inqurire about commissions</h4>
           </div>
         </div>
       </div>
