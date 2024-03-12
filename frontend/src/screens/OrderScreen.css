@@ -17,7 +17,7 @@
 .order-screen-details-container {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   gap: 3rem;
   padding: 2rem;
@@ -28,7 +28,7 @@
 .order-screen-items-container {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   gap: 2rem;
 }
@@ -66,7 +66,7 @@
 .order-item-container {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   gap: 1rem;
 }
@@ -87,7 +87,7 @@
 .order-item-info {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   padding-bottom: 1rem;
 }
@@ -101,8 +101,8 @@
 .order-summary {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .order-summary h3 {

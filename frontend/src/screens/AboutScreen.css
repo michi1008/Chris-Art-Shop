@@ -94,7 +94,7 @@
 }
 
 .artist-info-content p {
-  color: var(--clr-white);
+  color: var(--clr-brown);
   font-size: 1.3rem;
   padding: 2rem;
 }
@@ -135,43 +135,49 @@
   text-align: center;
 }
 
+@media screen and (max-width: 1200px) {
+    .profile-content {
+      flex-direction: column;
+    }   
+}
+
 @media screen and (max-width: 800px) {
-    .about-artist-profile {
-        flex-direction: column;
-      }
+  .about-artist-profile {
+    flex-direction: column;
+  }
 
-      .profile-content {
-        flex-direction: column;
-        
-      }
-      .service-content {
-        
-        flex-direction: column;
-     
-      }
-      .service-content-item {
-        flex-direction: column;
-        height: 15rem;
-        width: 20rem;
-      }
+  .profile-content {
+    flex-direction: column;
+    
+  }
+  .service-content {
+    
+    flex-direction: column;
+ 
+  }
+  .service-content-item {
+    flex-direction: column;
+    height: 15rem;
+    width: 20rem;
+  }
 
-      .artist-info-title {
-        line-height: 0;
-      }
-     
-      .artist-info {
-        height: 25rem;
-        width: 30rem;
-      }
+  .artist-info-title {
+    line-height: 0;
+  }
+ 
+  .artist-info {
+    height: 25rem;
+    width: 27rem;
+  }
 
-      
-      .artist-info-content {
-        height: 21rem;
-        width: 30rem;
-      }
-      
-      .artist-info-content p {
-        font-size: 1rem;
-      }
-      
+  
+  .artist-info-content {
+    height: 21rem;
+    width: 27rem;
+  }
+  
+  .artist-info-content p {
+    font-size: 1rem;
+  }
+  
 }
