@@ -5,6 +5,24 @@
     align-items: center;
 }
 
+.contact-title-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.contact-title-container h1 {
+    color: var(--clr-primary-2);
+}
+
+.underline-contact {
+    background-color: var(--clr-primary-2);
+    width: 65%;
+    height: 5px;
+}
+
 /* images */
 .contact-image-container {
     display:flex;
@@ -20,11 +38,7 @@
     height: 17rem;
     border-radius: 5px;
 }
-/* title */
-.contact-container h1 {
-    color: var(--clr-primary-3);
-    padding: 2rem;
-}
+
 /* social-media-info */
 .social-icon {
     color: var(--clr-primary-2)

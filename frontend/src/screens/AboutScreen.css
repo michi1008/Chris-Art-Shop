@@ -6,6 +6,24 @@
   margin: 2rem;
 }
 
+.about-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.about-title-container h1 {
+  color: var(--clr-primary-2);
+}
+
+.underline-about {
+  background-color: var(--clr-primary-2);
+  width: 65%;
+  height: 5px;
+}
+
 .about-artist-profile {
   display: flex;
   flex-direction: row;

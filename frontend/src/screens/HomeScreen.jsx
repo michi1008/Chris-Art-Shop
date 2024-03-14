@@ -45,7 +45,11 @@ const HomeScreen = () => {
             <Filter onChange={handleFilterChange} />
           </div>
           <div className='gallery'>
+            <div className="title-container">
             <h1 className='gallery-title'>Art Gallery</h1>
+            <div className="underline"></div>
+            </div>
+            
             <div className='art'>
             {keyword && (
         <Link to='/'>

@@ -28,9 +28,24 @@
   flex: 85%;
 }
 
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallery-title {
   padding: 2rem;
   color: var(--clr-primary-2);
+}
+
+
+
+.underline {
+  background-color: var(--clr-primary-2);
+  width: 65%;
+  height: 5px;
 }
 
 .art {

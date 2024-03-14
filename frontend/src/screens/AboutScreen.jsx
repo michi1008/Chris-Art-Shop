@@ -10,8 +10,10 @@ const AboutScreen = () => {
   return (
     <div className='about-content'>
       <div className='about-artist'>
+        <div className="about-title-container">
         <h1>About Artist</h1>
-
+        <div className="underline-about"></div>
+        </div>
         <div className='about-artist-profile'>
           <div className='about-artist-artist'>
             <img className='profile-image' src={profile} alt='Chris Lange' />

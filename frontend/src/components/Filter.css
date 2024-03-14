@@ -43,9 +43,9 @@
 }
 
 /* vertical line */
-.vl {
-  border-right: 6px solid var(--clr-primary-4);
-  height: 40rem;
+.vl  {
+  border-right: 6px solid var(--clr-primary-2);
+  height: 100rem;
   margin-top: 4rem;
 }
 

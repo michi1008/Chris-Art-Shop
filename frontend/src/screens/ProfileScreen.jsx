@@ -51,72 +51,56 @@ const ProfileScreen = () => {
     <div className='profile-container'>
       <div className='profile'>
         <h2 className='profile-title'>User Profile</h2>
-        <form className='profile-form' onSubmit={submitHandler}>
-          <div className='profile-item'>
-            <div className="profile-item-label">
+        <form className='register-form' onSubmit={submitHandler}>
+          <div className='form-item'>
             <label>Name</label>
-            </div>
-           <div className="profile-item-input">
-           <input
+            <input
               type='text'
+              className='register-input'
               placeholder='Enter your name...'
               id='name'
               name='name'
-              size='40'
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-           </div>
-            
           </div>
-          <div className='profile-item'>
-          <div className="profile-item-label">
+          <div className='form-item'>
             <label>Email</label>
-            </div>
-            <div className="profile-item-input">
             <input
               type='email'
+              className='register-input'
               placeholder='Enter your email...'
               id='email'
               name='email'
-              size='40'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            </div>
           </div>
-          <div className='profile-item'>
-          <div className="profile-item-label">
+          <div className='form-item'>
             <label>Password</label>
-            </div>
-            <div className="profile-item-input">
             <input
               type='password'
+              className='register-input'
               placeholder='Enter your password...'
               id='password'
               name='password'
-              size='40'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            </div>
           </div>
-          <div className='profile-item'>
-          <div className="profile-item-label">
+          <div className='form-item'>
             <label>Password Confirm</label>
-            </div>
-            <div className="profile-item-input">
             <input
               type='password'
+              className='register-input'
               placeholder='Confirm your password...'
-              id='confrimPassword'
-              name='confirmPassword'
-              size='40'
+              id='password'
+              name='password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            </div>
           </div>
+
           <div className='profile-btn-container'>
             <button type='submit'>Update</button>
           </div>
