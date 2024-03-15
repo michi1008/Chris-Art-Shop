@@ -10,9 +10,9 @@ const AboutScreen = () => {
   return (
     <div className='about-content'>
       <div className='about-artist'>
-        <div className="about-title-container">
-        <h1>About Artist</h1>
-        <div className="underline-about"></div>
+        <div className='about-title-container'>
+          <h1>About Artist</h1>
+          <div className='underline-about'></div>
         </div>
         <div className='about-artist-profile'>
           <div className='about-artist-artist'>
@@ -51,7 +51,7 @@ const AboutScreen = () => {
 
           <div className='artist-info-content'>
             <p>
-              "My passion is being outdoors among the majestic vistas that
+              'My passion is being outdoors among the majestic vistas that
               inspire my art. Painting plein air gives me the true colors for my
               work that are sometimes completed in studio from photographs. My
               photographic library gives me subjects from the Pacific Coast to
@@ -60,14 +60,17 @@ const AboutScreen = () => {
               These include places people enjoyed, Corvettes, race cars, and
               equine portraits. When I’m not painting, I’m riding or grooming my
               horse, and visiting National and State parks here in Texas,
-              Colorado, Wyoming, and the rest of the West."
+              Colorado, Wyoming, and the rest of the West.'
             </p>
           </div>
         </div>
       </div>
 
       <div className='about-service'>
-        <h1>About Service</h1>
+        <div className='about-service-title-container'>
+          <h1>About Service</h1>
+          <div className='underline-service'></div>
+        </div>
         <div className='service-content'>
           <div className='service-content-item'>
             <MdFilterFrames

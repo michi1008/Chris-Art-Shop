@@ -65,8 +65,3 @@
 .add-to-cart {
   padding: 2rem 0 0 0;
 }
-@media screen and (max-width: 800px) {
-  .image {
-    padding: 2rem;
-  }
-}
