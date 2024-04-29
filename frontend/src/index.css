@@ -89,7 +89,7 @@ p {
   color: var(--clr-primary-4);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   h1 {
     font-size: 3rem;
   }
