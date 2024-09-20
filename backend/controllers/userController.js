@@ -225,7 +225,7 @@ const forgetPassword = asyncHandler(async (req, res) => {
     });
 
     // Email configuration
-    /* const mailOptions = {
+    const mailOptions = {
       from: process.env.EMAIL,
       to: req.body.email,
       subject: "Reset Password",
@@ -234,10 +234,10 @@ const forgetPassword = asyncHandler(async (req, res) => {
         <a href="https://chris-art-shop.onrender.com/reset-password/${token}">https://chris-art-shop.onrender.com/reset-password/${token}</a>
         <p>The link will expire in 10 minutes.</p>
         <p>If you didn't request a password reset, please ignore this email.</p>`,
-    }; */
+    };
 
     // Email configuration
-    const mailOptions = {
+    /* const mailOptions = {
           from: process.env.EMAIL,
           to: req.body.email,
           subject: "Reset Password",
@@ -246,7 +246,7 @@ const forgetPassword = asyncHandler(async (req, res) => {
             <a href="http://localhost:3000/reset-password/${token}">http://localhost:3000/reset-password/${token}</a>
             <p>The link will expire in 10 minutes.</p>
             <p>If you didn't request a password reset, please ignore this email.</p>`,
-        };
+        }; */
 
     // Send the email
     transporter.sendMail(mailOptions, (err, info) => {
