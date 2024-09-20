@@ -9,6 +9,8 @@ import {
   getUserById,
   deleteUser,
   updateUser,
+  forgetPassword, 
+  resetPassword, 
 } from '../controllers/userController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 const router = express.Router();
@@ -25,5 +27,6 @@ router
   .delete(protect, admin, deleteUser)
   .get(protect, admin, getUserById)
   .put(protect, admin, updateUser);
-
+router.post("/forget-password", forgetPassword);
+router.post("/reset-password/:token", resetPassword);
 export default router;

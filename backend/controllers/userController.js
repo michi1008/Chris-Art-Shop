@@ -1,6 +1,9 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import generateToken from '../utils/generateToken.js';
 import User from '../models/userModel.js';
+import jwt from 'jsonwebtoken';
+import nodemailer from "nodemailer";
+import bcrypt from "bcryptjs";
 
 // @desc    Auth user & get token
 // @route   POST /api/users/auth
@@ -183,6 +186,116 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 });
 
+// Function to log environment variables for debugging
+const logEnvVariables = () => {
+  console.log("Email:", process.env.EMAIL);
+  console.log("App Password:", process.env.PASSWORD_APP_EMAIL);
+  console.log("JWT Secret:", process.env.JWT_SECRET);
+};
+
+const forgetPassword = asyncHandler(async (req, res) => {
+  try {
+    logEnvVariables();
+    // Find the user by email
+    const user = await User.findOne({ email: req.body.email });
+
+    // If user not found, send error message
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    // Generate a unique JWT token for the user that contains the user's id
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "10m",
+    });
+
+    // Send the token to the user's email
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD_APP_EMAIL,
+      },
+      secure: true, // Use TLS
+      tls: {
+        rejectUnauthorized: false,
+      },
+      logger: true,
+      debug: true,
+    });
+
+    // Email configuration
+    /* const mailOptions = {
+      from: process.env.EMAIL,
+      to: req.body.email,
+      subject: "Reset Password",
+      html: `<h1>Reset Your Password</h1>
+        <p>Click on the following link to reset your password:</p>
+        <a href="https://chris-art-shop.onrender.com/reset-password/${token}">https://chris-art-shop.onrender.com/reset-password/${token}</a>
+        <p>The link will expire in 10 minutes.</p>
+        <p>If you didn't request a password reset, please ignore this email.</p>`,
+    }; */
+
+    // Email configuration
+    const mailOptions = {
+          from: process.env.EMAIL,
+          to: req.body.email,
+          subject: "Reset Password",
+          html: `<h1>Reset Your Password</h1>
+            <p>Click on the following link to reset your password:</p>
+            <a href="http://localhost:3000/reset-password/${token}">http://localhost:3000/reset-password/${token}</a>
+            <p>The link will expire in 10 minutes.</p>
+            <p>If you didn't request a password reset, please ignore this email.</p>`,
+        };
+
+    // Send the email
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error("Error sending email:", err);
+        return res.status(500).send({ message: err.message });
+      }
+      res.status(200).send({ message: "Email sent" });
+    });
+  } catch (err) {
+    console.error("Error in forgetPassword:", err);
+    res.status(500).send({ message: err.message });
+  }
+});
+
+const resetPassword = asyncHandler(async (req, res) => {
+  try {
+    // Verify the token sent by the user
+    const decodedToken = jwt.verify(req.params.token, process.env.JWT_SECRET);
+
+    // Find the user with the id from the token
+    const user = await User.findById(decodedToken.userId);
+
+    if (!user) {
+      return res.status(401).send({ message: "No user found" });
+    }
+
+    // Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    req.body.newPassword = await bcrypt.hash(req.body.newPassword, salt);
+
+    const updatedUser = await User.findByIdAndUpdate(
+      decodedToken.userId,
+      { password: req.body.newPassword },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(401).send({ message: "Failed to update password" });
+    }
+
+    // Send success response
+    res.status(200).send({ message: "Password updated" });
+  } catch (err) {
+    // Send error response if any error occurs
+    res.status(500).send({ message: err.message });
+  }
+});
+
 export {
   authUser,
   registerUser,
@@ -193,4 +306,6 @@ export {
   deleteUser,
   getUserById,
   updateUser,
+  forgetPassword,
+  resetPassword
 };

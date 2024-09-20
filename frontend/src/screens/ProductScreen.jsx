@@ -25,7 +25,7 @@ const ProductScreen = () => {
   };
 
   return (
-    <section>
+    <section className='product-container'>
       <a href='/'>
         <button className='go-back'>Go back</button>
       </a>

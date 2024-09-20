@@ -61,7 +61,7 @@
   justify-content: center;
   height: 20rem;
   width: 30rem;
-  border-radius: 0.3rem;
+  border-radius: 1rem;
   box-shadow: var(--dark-shadow);
   background-color: var(--clr-white);
 }
@@ -70,7 +70,7 @@
   width: 20rem;
   height: 20rem;
   object-fit: cover;
-  border-radius: 0.3rem;
+  border-radius: 1rem;
   box-shadow: var(--dark-shadow);
 }
 
@@ -94,7 +94,7 @@
   justify-content: flex-end;
   height: 30rem;
   width: 40rem;
-  border-radius: 0.3rem;
+  border-radius: 1rem;
   box-shadow: var(--dark-shadow);
   background-color: var(--clr-white);
   margin-bottom: 2rem;
@@ -104,7 +104,7 @@
 }
 
 .artist-info-content {
-  background-color: var(--clr-primary-3);
+  background-color: var(--clr-primary-2);
   height: 25rem;
   width: 40rem;
   border-radius: 0 0 0.3rem 0.3rem;
@@ -112,7 +112,7 @@
 }
 
 .artist-info-content p {
-  color: var(--clr-brown);
+  color: var(--clr-white);
   font-size: 1.3rem;
   padding: 2rem;
 }

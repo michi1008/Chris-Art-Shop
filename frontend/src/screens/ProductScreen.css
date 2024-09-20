@@ -1,4 +1,13 @@
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .product-details {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +48,7 @@
   padding: 2rem;
   width: 70%;
   font-style: italic;
-  color: var(--clr-primary-4);
+  color: var(--clr-primary-3);
 }
 
 .info {

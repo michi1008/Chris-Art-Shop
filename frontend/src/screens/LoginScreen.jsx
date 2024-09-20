@@ -71,7 +71,7 @@ const LoginScreen = () => {
           <button className='login-btn' type='submit' disabled={isLoading}>
             Login
           </button>
-
+          
           {isLoading && <Loader />}
 
           <button className='login-register-btn'>
@@ -82,8 +82,14 @@ const LoginScreen = () => {
               Signup
             </Link>
           </button>
+          
         </div>
       </form>
+      <div className="forgetPassword">
+            <Link to="/forget-password" className="forgotPasswordLink">
+            Forgot Password?
+          </Link>
+          </div>
     </div>
   );
 };

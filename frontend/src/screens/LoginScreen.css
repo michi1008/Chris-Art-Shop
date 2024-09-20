@@ -8,10 +8,6 @@
   justify-content: center;
 }
 
-.login-title {
-  font-size: 2rem;
-  color: var(--clr-primary-2);
-}
 
 .login-form {
   display: flex;
@@ -35,6 +31,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .login-btn {
@@ -43,6 +40,16 @@
 
 .login-login-btn {
   background-color: var(--clr-brown);
+}
+
+.forgetPassword {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.forgotPasswordLink {
+  color: var(--clr-red);
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 800px) {

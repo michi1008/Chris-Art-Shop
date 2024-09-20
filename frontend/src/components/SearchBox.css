@@ -13,12 +13,11 @@ form {
   outline: 3px solid var(--clr-primary-2);
 }
 
-
 .search-input  {
   width: 10rem;
   box-sizing: border-box;
-  border: 2px solid var(--clr-primary-4);
-  border-radius: 5px;
+  border: 18px solid var(--clr-primary-4);
+  border-radius: 1rem;
   font-size: 1rem;
   background-color: var(--clr-primary-1);
   background-image: url('../assets/search.png'); 
