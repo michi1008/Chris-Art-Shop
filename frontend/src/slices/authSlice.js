@@ -4,6 +4,7 @@ const initialState = {
   userInfo: localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
     : null,
+    token: localStorage.getItem("authToken") || null,
 };
 
 const authSlice = createSlice({
@@ -13,9 +14,11 @@ const authSlice = createSlice({
     setCredentials: (state, action) => {
       state.userInfo = action.payload;
       localStorage.setItem('userInfo', JSON.stringify(action.payload));
+      localStorage.setItem("authToken", action.payload.token);
     },
     logout: (state, action) => {
       state.userInfo = null;
+      state.token = null;
       localStorage.clear();
     },
   },
