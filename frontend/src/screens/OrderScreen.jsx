@@ -111,7 +111,7 @@ const OrderScreen = () => {
                 Address:
                 {order.shippingAddress.address}, {order.shippingAddress.city} ,
                 {order.shippingAddress.postalCode},{' '}
-                {order.shippingAddress.state}
+                {order.shippingAddress.state.slice(0,2).toUpperCase()}
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>

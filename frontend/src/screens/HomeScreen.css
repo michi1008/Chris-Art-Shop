@@ -40,10 +40,8 @@
   color: var(--clr-primary-2);
 }
 
-
-
 .underline {
-  background-color: var(--clr-primary-2);
+  background-color: var(--clr-primary-3);
   width: 65%;
   height: 5px;
 }

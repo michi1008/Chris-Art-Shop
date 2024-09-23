@@ -5,31 +5,31 @@ form {
 }
 
 .search-input::placeholder {
-  color: var(--clr-primary-2);
+  color: var(--clr-primary-4);
   opacity: 1;
 }
 
 .search-input:focus {
-  outline: 3px solid var(--clr-primary-2);
+  outline: none;
+  border: 5px solid var(--clr-brown);
 }
 
-.search-input  {
+.search-input {
   width: 10rem;
   box-sizing: border-box;
-  border: 18px solid var(--clr-primary-4);
+  border: 5px solid var(--clr-primary-4);
   border-radius: 1rem;
   font-size: 1rem;
   background-color: var(--clr-primary-1);
-  background-image: url('../assets/search.png'); 
+  background-image: url("../assets/search.png");
   background-repeat: no-repeat;
-  background-position: 10px center; 
-  padding: 12px 20px 12px 40px; 
+  background-position: 10px center;
+  padding: 10px 15px 10px 35px;
   transition: width 0.4s ease-in-out;
 }
 
 @media (max-width: 420px) {
   .search-input {
     width: 12rem;
-    
   }
 }

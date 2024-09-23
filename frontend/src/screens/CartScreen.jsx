@@ -21,12 +21,12 @@ const CartScreen = () => {
 
   return (
     <div className='cart-container'>
-      <h2>Shopping Cart</h2>
+      <h1>Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <h5 className='cart-empty'>
           Your cart is emplty{' '}
           <Link to='/'>
-            <button>Go back</button>
+            <button className='go-back-btn'>Go back</button>
           </Link>
         </h5>
       ) : (
@@ -35,13 +35,13 @@ const CartScreen = () => {
             <div className='cartItem' key={item._id}>
               <img className='cart-image' src={item.image} alt={item.name} />
               <Link to={`/product/${item._id}`}>
-                <div className='cart-name'>{item.name}</div>
+                <div className='cart-name'><h3>{item.name}</h3></div>
               </Link>
               <div className='item-button'>
-                <div className='cart-price'>${item.price}</div>
-                <div className='trash'>
+                <div className='cart-price'><h3>${item.price}</h3></div>
+                <div className='trash-btn'>
                   <button onClick={() => removeFromCartHandler(item._id)}>
-                    <FaTrash />
+                    <FaTrash color="white" fontSize="1.5rem"/>
                   </button>
                 </div>
               </div>
