@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='copyright'>
-        <p className='copyright'>Chris Lange Art Shop &copy; {currentYear}</p>
+        <p className='copyright'>Chris Lange Fine Art Gallery &copy; {currentYear}</p>
       </div>
     </footer>
   );
