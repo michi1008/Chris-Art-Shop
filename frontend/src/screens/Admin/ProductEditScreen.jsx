@@ -182,6 +182,8 @@ const ProductEditScreen = () => {
               <option value='Oil on Board'>Oil on Board</option>
               <option value='Oil on Linen'>Oil on Linen</option>
               <option value='Oil'>Oil</option>
+              <option value='Oil'>Acrylic</option>
+              <option value='Oil'>Cards</option>
             </select>
             </div>
             <div className='product-edit-form-item'>
