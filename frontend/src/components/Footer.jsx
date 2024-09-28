@@ -18,13 +18,17 @@ const Footer = () => {
           <a href='https://www.instagram.com/chris_lange_art/'>
             <FaInstagramSquare className='social-icon' />
           </a>
-          <a href="mailto:chrislangeart1@gmail.com">
-            <MdEmail className='social-icon'/>
-          </a>
+          
         </div>
       </div>
       <div className='copyright'>
         <p className='copyright'>Chris Lange Fine Art Gallery &copy; {currentYear}</p>
+      </div>
+      <div className="contact-me">
+      <h4>Contact me</h4>
+        <a href="mailto:chrislangeart1@gmail.com">
+            <MdEmail className='social-icon'/>
+          </a>
       </div>
     </footer>
   );

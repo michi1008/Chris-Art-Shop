@@ -1,37 +1,38 @@
-import React from 'react';
-import './AboutScreen.css';
-import profile from '../assets/Chris.jpg';
-import sample from '../assets/paint_with_frame.jpg';
-import { MdLocalShipping } from 'react-icons/md';
-import { MdFilterFrames } from 'react-icons/md';
-import { TbAdjustmentsDown } from 'react-icons/tb';
+import React from "react";
+import "./AboutScreen.css";
+import profile from "../assets/Chris.jpg";
+import sample from "../assets/paint_with_frame.jpg";
+import { MdLocalShipping } from "react-icons/md";
+import { MdFilterFrames } from "react-icons/md";
+import { TbAdjustmentsDown } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const AboutScreen = () => {
   return (
-    <div className='about-content'>
-      <div className='about-artist'>
-        <div className='about-title-container'>
+    <div className="about-content">
+      <div className="about-artist">
+        <div className="about-title-container">
           <h1>About Artist</h1>
-          <div className='underline-about'></div>
+          <div className="underline-about"></div>
         </div>
-        <div className='about-artist-profile'>
-          <div className='about-artist-artist'>
-            <img className='profile-image' src={profile} alt='Chris Lange' />
+        <div className="about-artist-profile">
+          <div className="about-artist-artist">
+            <img className="profile-image" src={profile} alt="Chris Lange" />
             <h2>Chris Lange</h2>
           </div>
-          <div className='about-artist-sample'>
-            <img className='sample-image' src={sample} alt='paining' />
+          <div className="about-artist-sample">
+            <img className="sample-image" src={sample} alt="paining" />
             <h2>Her Pieces</h2>
           </div>
           ``
         </div>
       </div>
-      <div className='profile-content'>
-        <div className='artist-info'>
-          <div className='artist-info-title'>
+      <div className="profile-content">
+        <div className="artist-info">
+          <div className="artist-info-title">
             <h3>Her history</h3>
           </div>
-          <div className='artist-info-content'>
+          <div className="artist-info-content">
             <p>
               Chris began her lifelong passion for drawing and painting early in
               life. In her early years, she visited National Parks in the
@@ -44,12 +45,12 @@ const AboutScreen = () => {
           </div>
         </div>
 
-        <div className='artist-info'>
-          <div className='artist-info-title'>
+        <div className="artist-info">
+          <div className="artist-info-title">
             <h3>Her statement</h3>
           </div>
 
-          <div className='artist-info-content'>
+          <div className="artist-info-content">
             <p>
               'My passion is being outdoors among the majestic vistas that
               inspire my art. Painting plein air gives me the true colors for my
@@ -66,29 +67,36 @@ const AboutScreen = () => {
         </div>
       </div>
 
-      <div className='about-service'>
-        <div className='about-service-title-container'>
+      <div className="about-service">
+        <div className="about-service-title-container">
           <h1>About Service</h1>
-          <div className='underline-service'></div>
+          <div className="underline-service"></div>
         </div>
-        <div className='service-content'>
-          <div className='service-content-item'>
+        <div className="service-content">
+          <div className="service-content-item">
             <MdFilterFrames
-              style={{ fontSize: '4rem', color: 'var(--clr-primary-2)' }}
+              style={{ fontSize: "4rem", color: "var(--clr-primary-2)" }}
             />
-            <h4>Place the painting to the frame </h4>
+            <h4>
+              All painings are framed and the frame is included in the price.{" "}
+            </h4>
           </div>
-          <div className='service-content-item'>
+          <div className="service-content-item">
             <MdLocalShipping
-              style={{ fontSize: '4rem', color: 'var(--clr-primary-2)' }}
+              style={{ fontSize: "4rem", color: "var(--clr-primary-2)" }}
             />
-            <h4>Deliver the painting to your place safely</h4>
+            <h4>Deliver the painting to your place safely using Fedex.</h4>
           </div>
-          <div className='service-content-item'>
+          <div className="service-content-item">
             <TbAdjustmentsDown
-              style={{ fontSize: '4rem', color: 'var(--clr-primary-2)' }}
+              style={{ fontSize: "4rem", color: "var(--clr-primary-2)" }}
             />
-            <h4>Inqurire about commissions</h4>
+            <h4>
+              Inqurire about commissions. Please go to{" "}
+              <Link to="/contact">
+                <button>Contact page</button>
+              </Link>
+            </h4>
           </div>
         </div>
       </div>
