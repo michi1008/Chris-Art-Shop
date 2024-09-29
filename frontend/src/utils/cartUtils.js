@@ -30,10 +30,9 @@ export const updateCart = (state) => {
   );
   state.itemsPrice = addDecimals(itemsPrice);
 
-  // Check if the customer selected "hand-delivery"
-  const isHandDelivery = state.deliveryMethod === 'hand-delivered';
 
   // Calculate the shipping price based on delivery method
+  const isHandDelivery = state.deliveryMethod === 'hand-delivered';
   const shippingPrice = isHandDelivery ? 0 : itemsPrice > 800 ? 0 : 100;
   state.shippingPrice = addDecimals(shippingPrice);
 
