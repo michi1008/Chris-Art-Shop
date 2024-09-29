@@ -53,6 +53,23 @@ hr {
   padding: 1rem;
 }
 
+.delivery-option-container{
+  margin: 2rem 1rem;
+}
+.delivery-option {
+  padding: 0.5rem 2rem;
+  background-color: var(--clr-primary-3);
+  border: none;
+  border-radius: 1rem;
+  color: var(--clr-white);
+  background: linear-gradient(
+    45deg,
+    var(--clr-brown),
+    var(--clr-primary-3)
+  );
+  font-size: 1.2rem;
+}
+
 .check-out-btn {
   padding: 2rem;
 }

@@ -30,6 +30,10 @@ const cartSlice = createSlice({
       state.shippingAddress = action.payload;
       localStorage.setItem('cart', JSON.stringify(state));
     },
+    saveDeliveryMethod: (state, action) => {
+      state.deliveryMethod = action.payload.deliveryMethod;
+      localStorage.setItem('cart', JSON.stringify(state));
+    },
     savePaymentMethod: (state, action) => {
       state.paymentMethod = action.payload.paymentMethod;
       localStorage.setItem('cart', JSON.stringify(state));
@@ -46,6 +50,7 @@ export const {
   addToCart,
   removeFromCart,
   saveShippingAddress,
+  saveDeliveryMethod,
   savePaymentMethod,
   clearCartItems,
   resetCart,

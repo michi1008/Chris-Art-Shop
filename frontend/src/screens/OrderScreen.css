@@ -34,10 +34,16 @@
 }
 
 /* shipping side */
-.order-screen-shipping h3 {
+.order-screen-shipping h2 {
   font-weight: 700;
   margin-top: 1rem;
   color: var(--clr-brown);
+}
+
+.order-screen-shipping span {
+  font-weight: 700;
+  color: var(--clr-primary-2);
+  
 }
 
 .order-screen-hr {
@@ -58,20 +64,25 @@
   padding: 1rem 0;
 }
 
-.order-screen-payment h3 {
+.order-screen-payment h2 {
   color: var(--clr-brown);
+}
+
+.order-screen-payment span {
+  color: var(--clr-primary-2);
+  font-weight: 700;
 }
 
 /* order item */
 .order-item-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 
-.order-screen-items h3 {
+.order-screen-items h2 {
   color: var(--clr-brown);
 }
 
@@ -129,4 +140,110 @@
 
 .order-delivered-btn {
   margin-top: 2rem;
+}
+
+/* For smaller screens, like phones */
+@media (max-width: 768px) {
+  /* Adjusting layout */
+  .order-screen-details-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  /* Adjusting items container */
+  .order-screen-items-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Shipping section */
+  .order-screen-shipping h3 {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  .order-screen-payment h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Order items */
+  .order-item-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .order-item-image {
+    width: 100%;
+    height: auto;
+    margin: 0.5rem 0;
+  }
+
+  .order-item-info {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  /* Order summary */
+  .order-summary {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .order-summary h4 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .vl {
+    display: none;
+  }
+
+  .order-summary h3 {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  .order-summary-total {
+    font-size: 1.25rem;
+    margin-left: 0;
+  }
+
+  .pay-btn,
+  .order-delivered-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  /* PayPal button */
+  .paypal-buttons {
+    width: 100%;
+  }
+}
+
+/* For tablet sizes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .order-screen-items-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .order-item-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .order-summary {
+    width: 80%;
+  }
+
+  .vl {
+    display: none;
+  }
 }

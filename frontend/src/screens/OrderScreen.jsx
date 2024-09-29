@@ -104,15 +104,15 @@ const OrderScreen = () => {
         <div className='order-screen-items-container'>
           <div className='order-screen-items-left'>
             <div className='order-screen-shipping'>
-              <h3>Shipping</h3>
-              <p className='order-screen-shipping'>Name: {order.user.name}</p>
-              <p className='order-screen-shipping'>Email: {order.user.email}</p>
-              <p className='order-screen-shipping'>
-                Address:
+              <h2>Shipping</h2>
+              <h4 className='order-screen-shipping'><span>Name: </span>{order.user.name}</h4>
+              <h4 className='order-screen-shipping'><span>Email: </span>{order.user.email}</h4>
+              <h4 className='order-screen-shipping'>
+                <span className='order-screen-shipping'>Address: </span>
                 {order.shippingAddress.address}, {order.shippingAddress.city} ,
                 {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.state.slice(0,2).toUpperCase()}
-              </p>
+              </h4>
               {order.isDelivered ? (
                 <Message variant='success'>
                   Delivered on {order.deliveredAt}
@@ -124,11 +124,10 @@ const OrderScreen = () => {
             </div>
 
             <div className='order-screen-payment'>
-              <h3>Payment Method</h3>
-              <h5>
-                <strong>Method: </strong>
-                {order.paymentMethod}
-              </h5>
+              <h2>Payment Method</h2>    
+                <h4><span>Method: </span>
+                {order.paymentMethod}</h4>
+    
 
               {order.isPaid ? (
                 <Message variant='success'>Paid on {order.paidAt}</Message>
@@ -139,7 +138,7 @@ const OrderScreen = () => {
             <hr className='order-screen-hr'></hr>
 
             <div className='order-screen-items'>
-              <h3>Order Items</h3>
+              <h2>Order Items</h2>
               {order.orderItems.length === 0 ? (
                 <Message variant='warning'>Your cart is empty</Message>
               ) : (
@@ -195,6 +194,12 @@ const OrderScreen = () => {
               ) : (
                 <div>
                   <PayPalButtons
+                   style={{
+                    layout: 'vertical', 
+                    shape: 'rect',
+                    label: 'paypal' 
+                  }}
+                  locale='en_US'
                     createOrder={createOrder}
                     onApprove={onApprove}
                     onError={onError}

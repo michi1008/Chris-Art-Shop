@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CartScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { saveDeliveryMethod } from '../slices/cartSlice';
 import { removeFromCart } from '../slices/cartSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
@@ -10,12 +11,14 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const [deliveryMethod, setDeliveryMethod] = useState('shipped');
 
   const removeFromCartHandler = async (id) => {
     dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
+    dispatch(saveDeliveryMethod({ deliveryMethod }));
     navigate('/login?redirect=/shipping');
   };
 
@@ -24,7 +27,7 @@ const CartScreen = () => {
       <h1>Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <h5 className='cart-empty'>
-          Your cart is emplty{' '}
+          Your cart is empty{' '}
           <Link to='/'>
             <button className='go-back-btn'>Go back</button>
           </Link>
@@ -50,21 +53,40 @@ const CartScreen = () => {
           ))}
         </div>
       )}
-      <div className='total-amount'>
-        <h4>Subtotal ({cartItems.length}) items</h4>
-        <h4>
-          ${cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
-        </h4>
-      </div>
-      <div className='check-out-btn'>
-        <button
-          type='button'
-          onClick={checkoutHandler}
-          disabled={cartItems.length === 0}
-        >
-          Proceed to checkout
-        </button>
-      </div>
+
+      {/* Conditionally render subtotal, delivery option, and checkout button if cart is not empty */}
+      {cartItems.length > 0 && (
+        <>
+          <div className='total-amount'>
+            <h4>Subtotal ({cartItems.length}) items</h4>
+            <h4>
+              ${cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2)}
+            </h4>
+          </div>
+
+          <div className="delivery-option-container">
+            <h4>Delivery option</h4>
+            <select className='delivery-option'
+              name='deliveryMethod'
+              value={deliveryMethod}
+              onChange={(e) => setDeliveryMethod(e.target.value)}>
+              <option value=''>Select a delivery option</option>
+              <option value='shipped'>Shipped</option>
+              <option value='hand-delivered'>Hand-delivered</option>
+            </select>
+          </div>
+
+          <div className='check-out-btn'>
+            <button
+              type='button'
+              onClick={checkoutHandler}
+              disabled={cartItems.length === 0}
+            >
+              Proceed to checkout
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

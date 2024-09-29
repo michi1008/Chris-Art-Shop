@@ -61,14 +61,20 @@ function getTaxRateByLocation(shippingAddress) {
   return taxRates[shippingAddress.state] || 0.07;
 }
 
-export function calcPrices(orderItems) {
+export function calcPrices(orderItems, shippingAddress, deliveryMethod) {
   const itemsPrice = orderItems.reduce(
     (acc, item) => acc + (item.price * 100) / 100,
     0
   );
 
   // Calculate the shipping price
-  const shippingPrice = itemsPrice > 300 ? 0 : 100;
+  let shippingPrice = 100; // Default shipping cost
+  if (itemsPrice > 800) {
+    shippingPrice = 0;
+  }
+  if (deliveryMethod === "hand-delivered") {
+    shippingPrice = 0; 
+  }
 
   // Get tax rate based on shipping location
   const taxRate = getTaxRateByLocation(shippingAddress);
