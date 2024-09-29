@@ -31,10 +31,14 @@ export const updateCart = (state) => {
   state.itemsPrice = addDecimals(itemsPrice);
 
 
-  // Calculate the shipping price based on delivery method
-  const isHandDelivery = state.deliveryMethod === 'hand-delivered';
-  const shippingPrice = isHandDelivery ? 0 : itemsPrice > 800 ? 0 : 100;
-  state.shippingPrice = addDecimals(shippingPrice);
+  // Set the shipping price based on the selected delivery method
+  let shippingPrice = 0;
+  if (state.deliveryMethod === 'Shipped') {
+    shippingPrice = 10; // Standard shipping price
+  } else if (state.deliveryMethod === 'Hand Delivery') {
+    shippingPrice = 0; // No charge for hand delivery
+  }
+
 
   // Calculate the tax rate based on the shipping address location
   const taxRate = getTaxRateByLocation(state.shippingAddress);

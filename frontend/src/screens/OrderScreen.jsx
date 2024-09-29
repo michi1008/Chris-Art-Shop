@@ -180,6 +180,7 @@ const OrderScreen = () => {
         <div className='order-summary'>
           <h3>Order Summary</h3>
           <h4>Items: ${order.itemsPrice}</h4>
+          <h4>Delivery Method: {order.deliveryMethod}</h4>
           <h4>Shipping: ${order.shippingPrice}</h4>
           <h4>Tax: ${order.taxPrice}</h4>
           <hr className='order-summary-hr'></hr>
