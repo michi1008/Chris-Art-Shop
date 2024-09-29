@@ -19,7 +19,11 @@ const CartScreen = () => {
 
   const checkoutHandler = () => {
     dispatch(saveDeliveryMethod({ deliveryMethod }));
+    // Delay the navigation slightly to allow the state to update in localStorage
+  setTimeout(() => {
     navigate('/login?redirect=/shipping');
+  }, 100); // 100ms delay should be enough
+    
   };
 
   return (
