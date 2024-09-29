@@ -21,7 +21,7 @@ const PlaceOrderScreen = () => {
     } else if (!cart.paymentMethod) {
       navigate('/payment');
     }
-  }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
+  }, [cart.paymentMethod, cart.shippingAddress.address, cart.deliveryMethod, navigate]);
 
   const dispatch = useDispatch();
   const placeOrderHandler = async () => {
@@ -94,7 +94,10 @@ const PlaceOrderScreen = () => {
             <h5>Items: </h5>${cart.itemsPrice}
           </div>
           <div className='placeOrder-summary-item'>
-            <h5>Shipping: </h5>${cart.shippingPrice}
+            <h5>Delivery Method: </h5>{cart.deliveryMethod}
+          </div>
+          <div className='placeOrder-summary-item'>
+            <h5>Shipping Cost: </h5>${cart.shippingPrice}
           </div>
           <div className='placeOrder-summary-item'>
             <h5>Tax: </h5>${cart.taxPrice}
