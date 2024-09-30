@@ -80,7 +80,7 @@ export function calcPrices(orderItems, shippingAddress, deliveryMethod) {
   const taxRate = getTaxRateByLocation(shippingAddress);
 
   // Calculate the tax price
-  const taxPrice = taxRate * itemsPrice;
+  const taxPrice = taxRate/100 * itemsPrice;
 
   // Calculate the total price
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
