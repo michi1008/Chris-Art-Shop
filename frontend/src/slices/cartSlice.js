@@ -4,7 +4,9 @@ import { updateCart } from '../utils/cartUtils';
 const initialState = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
   : { cartItems: [], shippingAddress: {}, paymentMethod: 'PayPal' , deliveryMethod: 'Shipped'};
-
+const updateCartStorage = (state) => {
+  localStorage.setItem('cart', JSON.stringify(state));
+};
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -17,21 +19,24 @@ const cartSlice = createSlice({
           x._id === existItem._id ? item : x
         );
       } else {
-        state.cartItems = [...state.cartItems, item];
+        state.cartItems.push(item);
       }
-
-      return updateCart(state, item);
+      updateCart(state);
+      updateCartStorage(state)
     },
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter((x) => x._id !== action.payload);
-      return updateCart(state);
+      updateCart(state);
+      updateCartStorage(state);
     },
     saveShippingAddress: (state, action) => {
       state.shippingAddress = action.payload;
+      updateCart(state)
       localStorage.setItem('cart', JSON.stringify(state));
     },
     saveDeliveryMethod: (state, action) => {
       state.deliveryMethod = action.payload.deliveryMethod;
+      updateCart(state)
       localStorage.setItem('cart', JSON.stringify(state));
     },
     savePaymentMethod: (state, action) => {
@@ -40,6 +45,7 @@ const cartSlice = createSlice({
     },
     clearCartItems: (state, action) => {
       state.cartItems = [];
+      state.deliveryMethod = ''
       localStorage.setItem('cart', JSON.stringify(state));
     },
     resetCart: (state) => (state = initialState),

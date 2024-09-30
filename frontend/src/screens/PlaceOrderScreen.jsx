@@ -6,6 +6,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { useCreateOrderMutation } from '../slices/ordersApiSlice';
+import { updateCart } from '../utils/cartUtils';
 import { clearCartItems } from '../slices/cartSlice';
 import { toast } from 'react-toastify';
 
@@ -21,7 +22,7 @@ const PlaceOrderScreen = () => {
     } else if (!cart.paymentMethod) {
       navigate('/payment');
     }
-  }, [cart.paymentMethod, cart.shippingAddress.address, cart.deliveryMethod, navigate]);
+  }, [cart.paymentMethod, cart.shippingAddress.address, cart.deliveryMethod, cart.shippingPrice, navigate]);
 
   const dispatch = useDispatch();
   const placeOrderHandler = async () => {
@@ -39,7 +40,7 @@ const PlaceOrderScreen = () => {
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (err) {
-      toast.error(err);
+      toast.error(err?.data?.message || "Failed to place order");
     }
   };
 

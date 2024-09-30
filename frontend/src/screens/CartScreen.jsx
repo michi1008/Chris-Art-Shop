@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './CartScreen.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveDeliveryMethod } from '../slices/cartSlice';
-import { removeFromCart } from '../slices/cartSlice';
+import { saveDeliveryMethod, removeFromCart } from '../slices/cartSlice';
+import { updateCart } from '../utils/cartUtils';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const CartScreen = () => {
   const navigate = useNavigate();
@@ -14,16 +15,18 @@ const CartScreen = () => {
   const [deliveryMethod, setDeliveryMethod] = useState('shipped');
 
   const removeFromCartHandler = async (id) => {
-    dispatch(removeFromCart(id));
+    await dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
+    if (!deliveryMethod) {
+      toast.error("Please select a delivery method");
+      return;
+    }
     dispatch(saveDeliveryMethod({ deliveryMethod }));
-    // Delay the navigation slightly to allow the state to update in localStorage
-  setTimeout(() => {
+    updateCart({ ...cart, deliveryMethod });
     navigate('/login?redirect=/shipping');
-  }, 100); // 100ms delay should be enough
-    
+
   };
 
   return (
