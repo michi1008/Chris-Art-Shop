@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import './HomeScreen.css';
-import Paginate from '../components/Paginate';
-import { useParams, Link } from 'react-router-dom';
-import Product from '../components/Product';
-import Loader from '../components/Loader';
-import { useGetProductsQuery } from '../slices/productsApiSlice';
-import Filter from '../components/Filter';
+import React, { useState } from "react";
+import "./HomeScreen.css";
+import Paginate from "../components/Paginate";
+import { useParams, Link } from "react-router-dom";
+import Product from "../components/Product";
+import Loader from "../components/Loader";
+import { useGetProductsQuery } from "../slices/productsApiSlice";
+import Filter from "../components/Filter";
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
   const [filters, setFilters] = useState({
-    category: '',
-    style: '',
-    sortBy: '',
+    category: "",
+    style: "",
+    sortBy: "",
   });
 
   const { category, style, sortBy } = filters;
@@ -33,41 +33,46 @@ const HomeScreen = () => {
   };
 
   return (
-    <div className='home'>
-      
+    <div className="home">
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <div className='error'>{error?.data?.message || error.error}</div>
+        <div className="error">{error?.data?.message || error.error}</div>
       ) : (
-        <div className='home-content'>
-          <div className='home-filter'>
+        <div className="home-content">
+          <div className="home-filter">
             <Filter onChange={handleFilterChange} />
           </div>
-          <div className='gallery'>
+          <div className="gallery">
             <div className="title-container">
-            <h1 className='gallery-title'>Art Gallery</h1>
-            <div className="underline"></div>
+              <h1 className="gallery-title">Art Gallery</h1>
+              <div className="underline"></div>
             </div>
-            
-            <div className='art'>
-            {keyword && (
-        <Link to='/'>
-          <button className='home-backbtn'>Go Back</button>
-        </Link>
-      )}
-              {data.products.map((product) => (
-                <h3 key={product._id}>
-                  <Product product={product} />
-                </h3>
-              ))}
+
+            <div className={`art ${keyword ? "keyword-active" : ""}`}>
+              {keyword && (
+                <Link to="/">
+                  <button className="home-backbtn">Go Back</button>
+                </Link>
+              )}
+
+              {/* Check if products exist */}
+              {data.products.length === 0 ? (
+                <h2>There is no "{keyword}" in the title.</h2>
+              ) : (
+                data.products.map((product) => (
+                  <h3 key={product._id}>
+                    <Product product={product} />
+                  </h3>
+                ))
+              )}
             </div>
             <Paginate
               pages={data.pages}
               page={data.page}
-              keyword={keyword ? keyword : ''}
-              sortBy={sortBy ? sortBy : ''}
-              category={category ? category : ''}
+              keyword={keyword ? keyword : ""}
+              sortBy={sortBy ? sortBy : ""}
+              category={category ? category : ""}
             />
           </div>
         </div>

@@ -5,7 +5,8 @@
   align-items: center;
 }
 .home-backbtn {
-  margin: 2rem 3rem;
+  margin: 2rem auto;
+  display: block;
 }
 
 .home-content {
@@ -36,7 +37,7 @@
 }
 
 .gallery-title {
-  padding: 2rem;
+  padding: 2rem 1rem 0 1rem;
   color: var(--clr-primary-2);
 }
 
@@ -52,6 +53,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.art.keyword-active {
+  flex-direction: column; 
 }
 
 @media screen and (max-width: 800px) {
