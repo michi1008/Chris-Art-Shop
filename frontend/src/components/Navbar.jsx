@@ -37,7 +37,7 @@ const Navbar = () => {
       <NavLink to='/' className='title' style={{ fontSize: '2rem' }}>
         Chris Lange Fine Art Gallery
       </NavLink>
-      {userInfo ? <div className='nav-name'>Hello, {userInfo.name}</div> : ''}
+      {userInfo ? <div className='nav-name'><h4>Hello, {userInfo.name}</h4></div> : ''}
       <div className='menu' onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? (
           <FaWindowClose

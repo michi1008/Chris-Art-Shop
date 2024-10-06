@@ -69,9 +69,6 @@ export function calcPrices(orderItems, shippingAddress, deliveryMethod) {
 
   // Calculate the shipping price
   let shippingPrice = 100; // Default shipping cost
-  if (itemsPrice > 800) {
-    shippingPrice = 0;
-  }
   if (deliveryMethod === "hand-delivered") {
     shippingPrice = 0; 
   }

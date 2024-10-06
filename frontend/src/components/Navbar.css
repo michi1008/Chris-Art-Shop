@@ -1,5 +1,12 @@
 .nav-name {
   color: var(--clr-white);
+  display: flex;
+  align-items: center;
+}
+
+.nav-name h4 {
+  vertical-align: middle;
+  margin: 0;
 }
 
 nav {

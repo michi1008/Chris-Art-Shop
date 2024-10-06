@@ -12,7 +12,7 @@ const Footer = () => {
       <div className='footer-social'>
         <h4>follow me</h4>
         <div className='social-links'>
-          <a href='https://www.facebook.com/search/top?q=chris%20lange%20art'>
+          <a href='https://www.facebook.com/ChrisLangeArt/'>
             <FaFacebook className='social-icon' />
           </a>
           <a href='https://www.instagram.com/chris_lange_art/'>

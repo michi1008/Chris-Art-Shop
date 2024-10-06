@@ -58,7 +58,7 @@ const HomeScreen = () => {
 
               {/* Check if products exist */}
               {data.products.length === 0 ? (
-                <h2>There is no "{keyword}" in the title.</h2>
+                <h2>No matched result...😢</h2>
               ) : (
                 data.products.map((product) => (
                   <h3 key={product._id}>

@@ -72,9 +72,9 @@ export const updateCart = (state) => {
   // Calculate shipping price based on delivery method
   let shippingPrice = 100; // Default shipping cost
   if (state.deliveryMethod === 'shipped') {
-    shippingPrice = itemsPrice > 800 ? 0 : 100; 
+    shippingPrice = 100; 
   } else if (state.deliveryMethod === 'hand-delivered') {
-    shippingPrice = 0; // Free for hand-delivered
+    shippingPrice = 0;
   }
   state.shippingPrice = addDecimals(shippingPrice);
 
