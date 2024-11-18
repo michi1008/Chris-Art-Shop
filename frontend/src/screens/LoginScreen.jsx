@@ -41,7 +41,7 @@ const LoginScreen = () => {
 
   return (
     <div className='login'>
-      <span className='login-title'>Login</span>
+      <div className='login-title'><h2>Login</h2></div>
       <form className='login-form' onSubmit={submitHandler}>
         <div className='form-item'>
           <label>Email</label>

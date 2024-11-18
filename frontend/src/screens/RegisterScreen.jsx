@@ -67,7 +67,7 @@ const RegisterScreen = () => {
 
   return (
       <div className='register'>
-        <span className='register-title'>Register</span>
+        <div className='register-title'><h2>Register</h2></div>
         <form className='register-form' onSubmit={submitHandler}>
           <div className='form-item'>
             <label>Name</label>
