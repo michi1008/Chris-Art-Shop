@@ -17,3 +17,10 @@
   font-size: 1.5rem;
   cursor: not-allowed; 
 }
+
+@media screen and (max-width: 800px) {
+  .steps-link-disabled {
+    font-size: 1.2rem;
+  }
+
+}
