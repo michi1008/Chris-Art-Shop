@@ -61,6 +61,13 @@
 
 .btn-continue {
   margin-top: 3rem;
+  font-size: 1.5rem;
+}
+
+.paymentMethodOthers {
+  font-style: italic;
+  color: var(--clr-primary-3);
+  padding: 2rem;
 }
 
 

@@ -48,6 +48,7 @@ const PaymentScreen = () => {
             Continue
           </button>
         </form>
+        <div className="paymentMethodOthers"><h3>👉 If you prefer to pay with other payment metods, please contact the artist directory. </h3></div>
       </div>
     </div>
   );

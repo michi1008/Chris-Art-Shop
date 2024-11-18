@@ -1,39 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './CheckoutSteps.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./CheckoutSteps.css";
 
 const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
   return (
-    <div className='steps'>
+    <div className="steps">
       <div>
-        { step1 ? (
-          <Link className='steps-link' to='/login'>Sing In</Link>
+        {step1 ? (
+          <Link className="steps-link" to="/login">
+            Sign In
+          </Link>
         ) : (
-          <Link disabled>Sing In</Link>
+          <span className="steps-link-disabled">Sign In</span>
         )}
       </div>
       <div>
-      { step2 ? (
-        <Link className='steps-link' to='/shipping'>Shipping</Link>
-      ) : (
-        <Link disabled>Shipping</Link>
-      )}
+        {step2 ? (
+          <Link className="steps-link" to="/shipping">
+            Shipping
+          </Link>
+        ) : (
+          <span className="steps-link-disabled">Shipping</span>
+        )}
+      </div>
+      <div>
+        {step3 ? (
+          <Link className="steps-link" to="/payment">
+            Payment
+          </Link>
+        ) : (
+          <span className="steps-link-disabled">Payment</span>
+        )}
+      </div>
+      <div>
+        {step4 ? (
+          <Link className="steps-link" to="/placeorder">
+            Place Order
+          </Link>
+        ) : (
+          <span className="steps-link-disabled">Place Order</span>
+        )}
+      </div>
     </div>
-    <div>
-    { step3 ? (
-      <Link className='steps-link' to='/payment'>Payment</Link>
-    ) : (
-      <Link disabled>Payment</Link>
-    )}
-  </div>
-  <div>
-  { step4 ? (
-    <Link className='steps-link' to='/placeorder'>Place Order</Link>
-  ) : (
-    <Link disabled>Place Order</Link>
-  )}
-</div></div>
-  )
-}
+  );
+};
 
-export default CheckoutSteps
+export default CheckoutSteps;

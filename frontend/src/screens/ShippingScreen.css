@@ -7,7 +7,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.shippingTitle h3{
+  font-size: 1.8rem;
 }
 
 .shipping-form {
@@ -50,4 +54,5 @@
 
 .continue-btn {
   margin-top: 2rem;
+  font-size: 1.5rem;
 }

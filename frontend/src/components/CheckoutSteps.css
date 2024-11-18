@@ -5,12 +5,15 @@
   justify-content: center;
   gap: 2rem;
   padding: 2.5rem;
+}
 
-  .steps-link {
-    color: var(--clr-brown);
-  }
+.steps-link {
+  color: var(--clr-brown);
+  font-size: 1.5rem;
+}
 
-  .steps-link:disabled {
-    color: var(--clr-red);
-  }
+.steps-link-disabled {
+  color: var(--clr-red);
+  font-size: 1.5rem;
+  cursor: not-allowed; 
 }

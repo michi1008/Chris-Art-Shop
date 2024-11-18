@@ -50,19 +50,19 @@ const PlaceOrderScreen = () => {
       <div className='placeOrder-container'>
         <div className='placeOrder-items'>
           <div className='placeOrder-address'>
-            <h4>Address: </h4>
+            <h2>Address: </h2>
             {cart.shippingAddress.address},<br></br>
             {cart.shippingAddress.city} {cart.shippingAddress.postalCode},{' '}
             {cart.shippingAddress.state}
           </div>
           <hr className='placeOrder-hr'></hr>
           <div className='placeOrder-payment'>
-            <h4>Payment Method: </h4>
+            <h2>Payment Method: </h2>
             <div> {cart.paymentMethod}</div>
           </div>
           <hr className='placeOrder-hr'></hr>
           <div className='placeOrder-item'>
-            <h4>Order Items: </h4>
+            <h2>Order Items: </h2>
             {cart.cartItems.length === 0 ? (
               <Message>Your cart is empty</Message>
             ) : (
@@ -90,22 +90,26 @@ const PlaceOrderScreen = () => {
           </div>
         </div>
         <div className='placeOrder-summary'>
-          <h3>Order Summary</h3>
+          <h2>Order Summary</h2>
           <div className='placeOrder-summary-item'>
-            <h5>Items: </h5>${cart.itemsPrice}
+            <h3>Items: </h3>
+            <span className='placeOrder-summary-value'>${cart.itemsPrice}</span>
           </div>
           <div className='placeOrder-summary-item'>
-            <h5>Delivery Method: </h5>{cart.deliveryMethod}
+            <h3>Delivery Method: </h3>
+            <span className='placeOrder-summary-value'>{cart.deliveryMethod}</span>
           </div>
           <div className='placeOrder-summary-item'>
-            <h5>Shipping Cost: </h5>${cart.shippingPrice}
+            <h3>Shipping Cost: </h3>
+            <span className='placeOrder-summary-value'>${cart.shippingPrice}</span>
           </div>
           <div className='placeOrder-summary-item'>
-            <h5>Tax: </h5>${cart.taxPrice}
+            <h3>Tax: </h3>
+            <span className='placeOrder-summary-value'>${cart.taxPrice}</span>
           </div>
           <hr></hr>
           <div className='placeOrder-summary-item placeOrder-summary-total'>
-            <h3>Total: </h3>${cart.totalPrice}
+            <h2>Total:</h2><h2>${cart.totalPrice}</h2>
           </div>
           {error && <Message variant='warning'>{error.data.message}</Message>}
           <button
