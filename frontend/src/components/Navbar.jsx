@@ -31,6 +31,10 @@ const Navbar = () => {
       console.log(error);
     }
   };
+  // Function to handle link click and close the menu
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav>
@@ -44,7 +48,7 @@ const Navbar = () => {
             style={{
               fontSize: '2rem',
               color: 'var(--clr-white)',
-              backgroundColor: 'var(--clr-primary-5',
+              backgroundColor: 'var(--clr-primary-5)',
             }}
           />
         ) : (
@@ -53,38 +57,37 @@ const Navbar = () => {
       </div>
 
       <ul className={menuOpen ? 'open' : ''}>
-      <li>
-          <NavLink to='/'>Home</NavLink>
+        <li>
+          <NavLink to='/' onClick={handleLinkClick}>Home</NavLink>
         </li>
         <li>
-          <NavLink to='/about'>About</NavLink>
+          <NavLink to='/about' onClick={handleLinkClick}>About</NavLink>
         </li>
         <li>
-          <NavLink to='/contact'>Contact</NavLink>
+          <NavLink to='/contact' onClick={handleLinkClick}>Contact</NavLink>
         </li>
         <li>
           {userInfo ? (
             <div>
-              <NavLink to='/profile'>User Profile</NavLink>
+              <NavLink to='/profile' onClick={handleLinkClick}>User Profile</NavLink>
             </div>
           ) : (
-            <NavLink to='/login'>
+            <NavLink to='/login' onClick={handleLinkClick}>
               <FaUser /> Login
             </NavLink>
           )}
         </li>
         <li className='logout'>
           {userInfo ? (
-            <NavLink onClick={handleLogout}>
+            <NavLink onClick={() => { handleLogout(); handleLinkClick(); }}>
               <FaUser /> Logout
             </NavLink>
           ) : (
             ''
           )}
         </li>
-
         <li>
-          <NavLink className='navlink-cart' to='/cart'>
+          <NavLink className='navlink-cart' to='/cart' onClick={handleLinkClick}>
             {' '}
             <FaShoppingCart /> Cart
             {cartItems.length > 0 && (
@@ -101,13 +104,13 @@ const Navbar = () => {
               Admin <BiSolidDownArrow />
             </button>
             <div className='dropdown-content'>
-              <NavLink className='drodown-link' to='/admin/productList'>
+              <NavLink className='dropdown-link' to='/admin/productList' onClick={handleLinkClick}>
                 Products
               </NavLink>
-              <NavLink className='drodown-link' to='/admin/orderList'>
+              <NavLink className='dropdown-link' to='/admin/orderList' onClick={handleLinkClick}>
                 Orders
               </NavLink>
-              <NavLink className='drodown-link' to='/admin/userList'>
+              <NavLink className='dropdown-link' to='/admin/userList' onClick={handleLinkClick}>
                 Users
               </NavLink>
             </div>
