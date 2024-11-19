@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   overflow-x: hidden; 
+  width: 100%;
   max-width: 100vw; 
 }
 .home-backbtn {
@@ -20,7 +21,9 @@
 }
 
 .home-filter {
-  flex: 15%;
+  flex: 1 0 15%; 
+  max-width: 15%; 
+  box-sizing: border-box;
 }
 
 .gallery {
@@ -28,7 +31,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 85%;
+  flex: 1 0 85%; 
+  max-width: 85%; 
+  box-sizing: border-box;
 }
 
 .title-container {
@@ -55,6 +60,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  max-width: 100%; 
+  box-sizing: border-box;
 }
 
 .art.keyword-active {
@@ -65,11 +72,21 @@
   .home-content {
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center; 
     width: 100%;
+    max-width: 100%; 
+    box-sizing: border-box;
   }
+
   .home-filter {
     flex: 1;
     align-self: center;
+    max-width: 100%; 
+  }
+
+  .gallery {
+    width: 100%;
+    max-width: 100%; 
+    box-sizing: border-box;
   }
 }
