@@ -107,4 +107,14 @@
   .placeOrder-summary hr {
     height: 3px;
   }
+
+  .placeOrder-summary-item span {
+    color:var(--clr-primary-4);
+    font-size: 1rem;
+  }
+  
+  .placeOrder-summary-total {
+    font-size: 1rem;
+  }
+  
 }
